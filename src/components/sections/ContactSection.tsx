@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { Container, SectionHeading, Button } from '../ui';
 import { siteConfig } from '../../config/site';
-import { fadeInUp, fadeInLeft, fadeInRight } from '../../animations/variants';
+import { fadeInLeft, fadeInRight } from '../../animations/variants';
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);

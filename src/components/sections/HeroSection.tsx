@@ -81,19 +81,19 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
           >
-            <Link
-              to="/contact"
+            <a
+              href="/#contact"
               className="w-full sm:w-auto group inline-flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5"
             >
               Start a Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/services"
+            </a>
+            <a
+              href="/#services"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white text-dark border-2 border-border px-8 py-4 rounded-xl text-base font-bold hover:border-primary hover:text-primary transition-all duration-300"
             >
               Explore Services
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </Container>

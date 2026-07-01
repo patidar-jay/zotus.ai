@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
-import Logo from './Logo';
 import { Container } from '../ui';
 import { siteConfig } from '../../config/site';
 
@@ -24,13 +23,13 @@ export default function Footer() {
                 Let's build something extraordinary together.
               </p>
             </div>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 bg-primary text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent transition-colors duration-300 flex-shrink-0"
+            <a
+              href="/#contact"
+              className="group inline-flex items-center gap-3 bg-primary text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent transition-colors duration-300 flex-shrink-0 rounded-xl"
             >
               Get in Touch
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
+            </a>
           </div>
         </Container>
       </div>

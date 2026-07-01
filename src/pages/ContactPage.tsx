@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Container } from '../components/ui';
-import { ContactSection, CTASection } from '../components/sections';
+import { ContactSection } from '../components/sections';
 
 export default function ContactPage() {
   return (

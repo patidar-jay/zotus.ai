@@ -6,10 +6,10 @@ import { services } from '../../constants/services';
 import { staggerContainer, fadeInUp } from '../../animations/variants';
 
 export default function ServicesSection() {
-  const featured = services.slice(0, 6);
+  const featured = services.slice(0, 3);
 
   return (
-    <section id="services" className="section-py bg-white" aria-labelledby="services-heading">
+    <section id="services" className="section-py bg-bg-subtle relative" aria-labelledby="services-heading">
       <Container>
         {/* Section header */}
         <motion.div
@@ -17,17 +17,16 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 max-w-2xl"
+          className="mb-20 text-center max-w-3xl mx-auto"
         >
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">
-            What We Do
+          <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide mb-6">
+            Our Expertise
           </span>
-          <h2 className="text-dark mb-5">
-            Enterprise solutions <br />
-            <span className="text-gradient">built for scale</span>
+          <h2 className="text-dark mb-6">
+            Solutions built for scale
           </h2>
-          <p className="text-gray text-lg leading-relaxed">
-            From AI development to cloud infrastructure — we deliver technology that creates measurable business impact.
+          <p className="text-gray text-xl leading-relaxed">
+            From cutting-edge AI development to robust cloud infrastructure, we deliver technology that creates measurable business impact.
           </p>
         </motion.div>
 
@@ -37,7 +36,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {featured.map((service) => {
             const Icon = service.icon;
@@ -45,29 +44,26 @@ export default function ServicesSection() {
               <motion.div
                 key={service.slug}
                 variants={fadeInUp}
-                className="group relative bg-white p-10 flex flex-col cursor-pointer transition-all duration-300 hover:bg-bg-subtle"
+                className="group bg-white rounded-3xl p-10 shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                {/* Left accent bar on hover */}
-                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                  <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
+                </div>
 
-                <Icon className="w-8 h-8 text-primary mb-6" />
-
-                <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-primary transition-colors duration-200">
+                <h3 className="text-2xl font-bold text-dark mb-4">
                   {service.title}
                 </h3>
 
-                <p className="text-gray text-sm leading-relaxed mb-8 flex-grow">
-                  {service.description.length > 100
-                    ? service.description.slice(0, 100) + '...'
-                    : service.description}
+                <p className="text-gray text-base leading-relaxed mb-8 flex-grow">
+                  {service.description}
                 </p>
 
                 <Link
                   to={`/services#${service.slug}`}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary group-hover:gap-3 transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:gap-3 transition-all duration-200"
                 >
                   Learn more
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>
             );
@@ -79,14 +75,14 @@ export default function ServicesSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-12 flex justify-center"
+          className="mt-16 flex justify-center"
         >
           <Link
             to="/services"
-            className="group inline-flex items-center gap-3 bg-dark text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] hover:bg-primary transition-colors duration-300"
+            className="group inline-flex items-center gap-3 bg-dark text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-primary transition-colors duration-300"
           >
             Explore all services
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
       </Container>

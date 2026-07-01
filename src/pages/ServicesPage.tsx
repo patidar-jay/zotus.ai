@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Container, SectionHeading, Button } from '../components/ui';
+import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 import { services } from '../constants/services';
 import { fadeInUp, staggerContainer } from '../animations/variants';
@@ -26,7 +24,7 @@ export default function ServicesPage() {
       <section className="section-py bg-white">
         <Container>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-8">
-            {services.map((service, i) => {
+            {services.map((service) => {
               const Icon = service.icon;
               return (
                 <motion.div key={service.slug} id={service.slug} variants={fadeInUp} className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-8 rounded-2xl border border-border hover:border-primary/15 hover:shadow-sm transition-all">

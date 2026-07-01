@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Container, SectionHeading } from '../components/ui';
+import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 import { industries } from '../constants/industries';
 import { fadeInUp, staggerContainer } from '../animations/variants';

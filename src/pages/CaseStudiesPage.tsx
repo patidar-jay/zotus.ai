@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 import { caseStudies } from '../constants/caseStudies';

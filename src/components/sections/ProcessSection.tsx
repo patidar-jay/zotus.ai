@@ -24,7 +24,7 @@ export default function ProcessSection() {
           <div className="absolute left-[28px] top-0 bottom-0 w-px bg-border hidden md:block" />
 
           <div className="space-y-6 md:space-y-0">
-            {processSteps.map((step, index) => {
+            {processSteps.map((step) => {
               const Icon = step.icon;
               return (
                 <motion.div

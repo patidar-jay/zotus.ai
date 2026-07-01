@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { FileText, Clock, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Container, SectionHeading } from '../components/ui';
+import { FileText, Clock } from 'lucide-react';
+import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 import { fadeInUp, staggerContainer } from '../animations/variants';
 
