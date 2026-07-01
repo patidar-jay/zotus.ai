@@ -1,0 +1,13 @@
+export { default as HeroSection } from './HeroSection';
+export { default as AboutSection } from './AboutSection';
+export { default as ServicesSection } from './ServicesSection';
+export { default as WhyChooseUsSection } from './WhyChooseUsSection';
+export { default as IndustriesSection } from './IndustriesSection';
+export { default as ProcessSection } from './ProcessSection';
+export { default as StatsSection } from './StatsSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as CaseStudiesSection } from './CaseStudiesSection';
+export { default as TechStackSection } from './TechStackSection';
+export { default as FAQSection } from './FAQSection';
+export { default as CTASection } from './CTASection';
+export { default as ContactSection } from './ContactSection';

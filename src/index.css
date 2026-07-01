@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens (Zotus Purple Brand) ─── */
+@theme {
+  --color-primary: #6C2BD9;
+  --color-primary-dark: #4A1D96;
+  --color-primary-light: #A855F7;
+  --color-accent: #B44CF7;
+  --color-success: #10B981;
+  --color-dark: #111111;
+  --color-dark-secondary: #1A1A2E;
+  --color-text: #222222;
+  --color-text-secondary: #555555;
+  --color-gray: #777777;
+  --color-gray-light: #AAAAAA;
+  --color-gray-lighter: #D4D4D4;
+  --color-border: #E8E8E8;
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #FAFAFA;
+  --color-bg-muted: #F3F3F5;
+
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --container-max: 1320px;
+}
+
+/* ─── Base Styles ─── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  h1 { font-size: clamp(2.75rem, 5.5vw, 4.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+  h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+  h4 { font-size: clamp(1.125rem, 1.5vw, 1.25rem); }
+
+  p {
+    color: var(--color-gray);
+    line-height: 1.8;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── Utilities ─── */
+@layer utilities {
+  .container-site {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-site {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
+
+  .section-py {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @media (min-width: 768px) {
+    .section-py {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  }
+
+  .section-py-sm {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  @media (min-width: 768px) {
+    .section-py-sm {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #6C2BD9 0%, #B44CF7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #6C2BD9 0%, #4A1D96 100%);
+  }
+
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-lighter);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-light);
+}
+
+/* ─── Custom Animations ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108, 43, 217, 0.2); }
+  50% { box-shadow: 0 0 20px 4px rgba(108, 43, 217, 0.15); }
+}
