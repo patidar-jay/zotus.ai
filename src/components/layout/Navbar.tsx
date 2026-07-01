@@ -1,15 +1,19 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 import { useScrolled } from '../../hooks/useScrolled';
 
 const navLinks = [
+  { label: 'Home', href: '/#' },
   { label: 'Services', href: '/#services' },
   { label: 'Industries', href: '/#industries' },
-  { label: 'Insights', href: '/#insights' },
-  { label: 'About', href: '/#about' },
+  { label: 'Case Studies', href: '/#insights' },
+  { label: 'About Us', href: '/#about' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Navbar() {
@@ -28,8 +32,11 @@ export default function Navbar() {
     if (href.startsWith('/#')) {
       const targetId = href.substring(2);
       
-      // If we are already on the home page, just scroll
       if (location.pathname === '/') {
+        if (targetId === '') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
         const element = document.getElementById(targetId);
         if (element) {
           const headerOffset = 80;
@@ -38,9 +45,12 @@ export default function Navbar() {
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
       } else {
-        // If on another page, navigate to home then scroll
         navigate('/');
         setTimeout(() => {
+          if (targetId === '') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
           const element = document.getElementById(targetId);
           if (element) {
             const headerOffset = 80;
@@ -55,36 +65,17 @@ export default function Navbar() {
     }
   };
 
-  // Handle direct navigation to a hash URL (e.g. refresh on /#services)
-  useEffect(() => {
-    if (location.pathname === '/' && location.hash) {
-      const targetId = location.hash.substring(1);
-      setTimeout(() => {
-        const element = document.getElementById(targetId);
-        if (element) {
-          const headerOffset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
-      }, 100);
-    }
-  }, [location.pathname, location.hash]);
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-sm shadow-[0_1px_3px_rgba(0,0,0,0.06)]'
+          ? 'bg-white/98 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.05)]'
           : 'bg-white'
       }`}
       role="banner"
     >
-      {/* Top accent line */}
-      <div className="h-[3px] bg-gradient-to-r from-primary via-accent to-primary-light" />
-
       <nav
-        className="container-site flex items-center justify-between h-[72px]"
+        className="container-site flex items-center justify-between h-[80px]"
         aria-label="Main navigation"
       >
         {/* Logo */}
@@ -97,30 +88,30 @@ export default function Navbar() {
             navigate('/');
           }
         }}>
-          <Logo className="h-8 w-auto" />
+          <Logo className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-10" role="menubar">
+        <ul className="hidden lg:flex items-center gap-7 xl:gap-9" role="menubar">
           {navLinks.map((link) => {
-            const isActive = location.pathname === '/' && location.hash === link.href.substring(1);
+            const isActive = location.pathname === '/' && (location.hash === link.href.substring(1) || (location.hash === '' && link.href === '/#'));
             return (
               <li key={link.href} role="none">
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   role="menuitem"
-                  className={`relative py-2 text-[13px] font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
+                  className={`relative py-2 text-[13px] font-bold tracking-wide transition-colors duration-200 ${
                     isActive
                       ? 'text-primary'
-                      : 'text-text-secondary hover:text-primary'
+                      : 'text-dark hover:text-primary'
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-primary"
+                      className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-primary rounded-full"
                     />
                   )}
                 </a>
@@ -134,9 +125,10 @@ export default function Navbar() {
           <a
             href="/#contact"
             onClick={(e) => handleNavClick(e, '/#contact')}
-            className="bg-primary text-white px-7 py-3 text-[13px] font-bold uppercase tracking-wider hover:bg-primary-dark rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+            className="group flex items-center gap-2 bg-primary text-white px-6 py-2.5 text-[13px] font-bold rounded-lg shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:bg-primary-dark transition-all duration-300"
           >
-            Let's Talk
+            Get In Touch
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
@@ -169,7 +161,7 @@ export default function Navbar() {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className={`block text-lg font-bold uppercase tracking-wider transition-colors text-text-secondary hover:text-primary`}
+                        className={`block text-lg font-bold tracking-wide transition-colors text-dark hover:text-primary`}
                       >
                         {link.label}
                       </a>
@@ -181,9 +173,10 @@ export default function Navbar() {
                 <a
                   href="/#contact"
                   onClick={(e) => handleNavClick(e, '/#contact')}
-                  className="block text-center bg-primary text-white px-5 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-primary-dark transition-colors rounded-xl"
+                  className="flex items-center justify-center gap-2 bg-primary text-white px-5 py-3.5 text-sm font-bold rounded-lg hover:bg-primary-dark transition-colors"
                 >
-                  Let's Talk
+                  Get In Touch
+                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </nav>
