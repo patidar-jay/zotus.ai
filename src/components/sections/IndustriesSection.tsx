@@ -1,68 +1,43 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Container } from '../ui';
+import { Container, SectionHeading } from '../ui';
 import { industries } from '../../constants/industries';
-import { fadeInUp, staggerContainer } from '../../animations/variants';
+import { staggerContainer, fadeInUp } from '../../animations/variants';
 
 export default function IndustriesSection() {
-  const featured = industries.slice(0, 6);
-
   return (
-    <section id="industries" className="section-py bg-white" aria-labelledby="industries-heading">
+    <section id="industries" className="section-py bg-[var(--color-bg-subtle)]">
       <Container>
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Left column — heading */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-1/3"
-          >
-            <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide mb-6">
-              Industries
-            </span>
-            <h2 className="text-dark mb-6">
-              Deep domain expertise
-            </h2>
-            <p className="text-gray text-lg leading-relaxed mb-10">
-              We bring specialized knowledge to every sector we serve, understanding the unique challenges and regulatory requirements of your industry.
-            </p>
-            <Link
-              to="/industries"
-              className="inline-flex items-center justify-center gap-3 bg-white text-dark border-2 border-border px-8 py-4 rounded-xl text-base font-bold hover:border-primary hover:text-primary transition-all duration-300"
-            >
-              View all industries
-            </Link>
-          </motion.div>
+        <SectionHeading
+          eyebrow="INDUSTRIES WE SERVE"
+          title="Deep Domain Expertise"
+          description="Specialized solutions for the unique challenges and regulatory requirements of your industry."
+        />
 
-          {/* Right column — industry grid */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-6"
-          >
-            {featured.map((industry) => {
-              const Icon = industry.icon;
-              return (
-                <motion.div
-                  key={industry.slug}
-                  variants={fadeInUp}
-                  className="group bg-bg-subtle rounded-3xl p-8 cursor-pointer transition-all duration-300 hover:bg-primary shadow-sm hover:shadow-lg hover:-translate-y-1 text-center flex flex-col items-center justify-center aspect-square"
-                >
-                  <div className="mb-4 bg-white p-4 rounded-full shadow-sm group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-dark group-hover:text-white transition-colors duration-200">
-                    {industry.name}
-                  </h3>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6"
+        >
+          {industries.map((ind) => {
+            const Icon = ind.icon;
+            return (
+              <motion.div
+                key={ind.slug}
+                variants={fadeInUp}
+                className="group flex flex-col items-center text-center p-6 rounded-2xl border border-[var(--color-border)] bg-white hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[var(--color-accent-light)]">
+                  <Icon className="w-7 h-7 text-[var(--color-primary)]" strokeWidth={1.5} />
+                </div>
+                <span className="text-sm font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
+                  {ind.name}
+                </span>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </Container>
     </section>
   );

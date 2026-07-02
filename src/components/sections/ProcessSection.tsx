@@ -1,61 +1,61 @@
 import { motion } from 'framer-motion';
 import { Container, SectionHeading } from '../ui';
 import { processSteps } from '../../constants/process';
-import { fadeInUp, staggerContainer } from '../../animations/variants';
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="section-py bg-white" aria-labelledby="process-heading">
+    <section className="section-py bg-white overflow-hidden">
       <Container>
         <SectionHeading
-          label="Our Process"
-          title="How We Deliver Results"
-          description="A structured, transparent approach that ensures quality, predictability, and measurable outcomes at every stage."
+          eyebrow="HOW WE WORK"
+          title="Our Development Process"
+          description="A proven methodology that delivers high-quality results on time and within budget."
         />
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="relative"
-        >
-          {/* Connecting line */}
-          <div className="absolute left-[28px] top-0 bottom-0 w-px bg-border hidden md:block" />
+        {/* Timeline */}
+        <div className="relative">
+          {/* Horizontal line */}
+          <div className="hidden lg:block absolute top-10 left-0 right-0 h-[2px] bg-[var(--color-border)]">
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] origin-left"
+            />
+          </div>
 
-          <div className="space-y-6 md:space-y-0">
-            {processSteps.map((step) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-4">
+            {processSteps.map((step, idx) => {
               const Icon = step.icon;
               return (
                 <motion.div
-                  key={step.title}
-                  variants={fadeInUp}
-                  className="relative flex gap-6 md:gap-8 pb-8 md:pb-12 last:pb-0"
+                  key={step.step}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="flex flex-col items-center text-center"
                 >
-                  {/* Step indicator */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div className="w-14 h-14 rounded-2xl bg-white border-2 border-border flex items-center justify-center shadow-sm">
-                      <Icon className="w-6 h-6 text-primary" />
+                  {/* Node */}
+                  <div className="relative z-10 w-20 h-20 rounded-2xl bg-white border-2 border-[var(--color-border)] flex items-center justify-center mb-5 shadow-sm group-hover:border-[var(--color-primary)] transition-colors">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-[10px] font-bold flex items-center justify-center">
+                      {step.step}
                     </div>
+                    <Icon className="w-7 h-7 text-[var(--color-primary)]" strokeWidth={1.5} />
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1 pt-2">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-bold text-primary bg-primary/5 px-2.5 py-1 rounded-full">
-                        Step {step.step}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-dark mb-2">{step.title}</h3>
-                    <p className="text-sm text-gray leading-relaxed max-w-xl">
-                      {step.description}
-                    </p>
-                  </div>
+                  <h4 className="text-sm font-bold text-[var(--color-text)] mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                    {step.title}
+                  </h4>
+                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed max-w-[160px]">
+                    {step.description}
+                  </p>
                 </motion.div>
               );
             })}
           </div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

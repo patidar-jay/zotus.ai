@@ -1,78 +1,55 @@
 import {
   Search,
-  ClipboardList,
   LayoutDashboard,
-  Boxes,
   Palette,
   Code2,
   TestTube2,
   Rocket,
-  LifeBuoy,
+  Headphones,
 } from 'lucide-react';
 import type { ProcessStep } from '../types';
 
 export const processSteps: ProcessStep[] = [
   {
+    step: 1,
     icon: Search,
     title: 'Discovery',
-    description:
-      'We deeply understand your business, users, and goals through stakeholder interviews, market research, and competitive analysis.',
-    step: 1,
+    description: 'Deep-dive into your business goals, challenges, and technical landscape.',
   },
   {
-    icon: ClipboardList,
-    title: 'Requirement Analysis',
-    description:
-      'Transform business needs into detailed technical specifications with clear acceptance criteria and success metrics.',
     step: 2,
-  },
-  {
     icon: LayoutDashboard,
     title: 'Planning',
-    description:
-      'Create a comprehensive project roadmap with milestones, resource allocation, and risk mitigation strategies.',
+    description: 'Architecture design, technology selection, and detailed project roadmap.',
+  },
+  {
     step: 3,
-  },
-  {
-    icon: Boxes,
-    title: 'Architecture',
-    description:
-      'Design scalable, secure system architecture that ensures performance, maintainability, and future extensibility.',
-    step: 4,
-  },
-  {
     icon: Palette,
-    title: 'Design',
-    description:
-      'Craft intuitive, accessible user experiences with pixel-perfect interfaces that align with your brand identity.',
-    step: 5,
+    title: 'UI/UX',
+    description: 'User-centered design with wireframes, prototypes, and usability testing.',
   },
   {
+    step: 4,
     icon: Code2,
     title: 'Development',
-    description:
-      'Build with clean, tested code using industry best practices. Agile sprints with continuous integration and delivery.',
-    step: 6,
+    description: 'Agile sprints with clean code, code reviews, and continuous integration.',
   },
   {
+    step: 5,
     icon: TestTube2,
     title: 'Testing',
-    description:
-      'Rigorous quality assurance including unit tests, integration tests, performance testing, and security audits.',
-    step: 7,
+    description: 'Comprehensive QA with automated testing, performance, and security audits.',
   },
   {
+    step: 6,
     icon: Rocket,
     title: 'Deployment',
-    description:
-      'Zero-downtime deployments with automated pipelines, monitoring, and rollback capabilities for production readiness.',
-    step: 8,
+    description: 'Zero-downtime deployment with monitoring, scaling, and rollback strategies.',
   },
   {
-    icon: LifeBuoy,
+    step: 7,
+    icon: Headphones,
     title: 'Support',
-    description:
-      'Ongoing maintenance, performance monitoring, and iterative improvements to ensure long-term success.',
-    step: 9,
+    description: 'Ongoing maintenance, performance optimization, and dedicated support.',
   },
 ];

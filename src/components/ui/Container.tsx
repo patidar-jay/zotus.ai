@@ -1,21 +1,14 @@
-import { type ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 interface ContainerProps {
   children: ReactNode;
   className?: string;
-  as?: 'div' | 'section' | 'article' | 'main' | 'header' | 'footer';
-  id?: string;
 }
 
-export default function Container({
-  children,
-  className = '',
-  as: Component = 'div',
-  id,
-}: ContainerProps) {
+export default function Container({ children, className = '' }: ContainerProps) {
   return (
-    <Component id={id} className={`container-site ${className}`}>
+    <div className={`container-site ${className}`}>
       {children}
-    </Component>
+    </div>
   );
 }

@@ -1,164 +1,186 @@
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import Logo from './Logo';
 import { Container } from '../ui';
 import { siteConfig } from '../../config/site';
 
+const footerLinks = {
+  'Quick Links': [
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/#about' },
+    { label: 'Case Studies', href: '/#case-studies' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Contact', href: '/#contact' },
+  ],
+  'Services': [
+    { label: 'Artificial Intelligence', href: '/#services' },
+    { label: 'Machine Learning', href: '/#services' },
+    { label: 'Custom Software', href: '/#services' },
+    { label: 'Mobile Apps', href: '/#services' },
+    { label: 'Cloud & DevOps', href: '/#services' },
+    { label: 'Data Analytics', href: '/#services' },
+  ],
+  'Industries': [
+    { label: 'Healthcare', href: '/#industries' },
+    { label: 'Finance', href: '/#industries' },
+    { label: 'Manufacturing', href: '/#industries' },
+    { label: 'Education', href: '/#industries' },
+    { label: 'Retail', href: '/#industries' },
+    { label: 'Logistics', href: '/#industries' },
+  ],
+};
+
+const socialLinks = [
+  { name: 'LinkedIn', url: siteConfig.social.linkedin, d: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z' },
+  { name: 'GitHub', url: siteConfig.social.github, d: 'M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22' },
+  { name: 'Instagram', url: siteConfig.social.instagram, d: 'M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm4.5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.1-2.7a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z' },
+  { name: 'X', url: siteConfig.social.twitter, d: 'M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' },
+];
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href.startsWith('/#')) {
+      const id = href.slice(2);
+      if (location.pathname === '/') {
+        const el = document.getElementById(id);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      } else {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 150);
+      }
+    } else if (href === '/') {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(href);
+    }
+  };
 
   return (
-    <footer className="bg-dark text-white" role="contentinfo">
-      {/* Top accent line */}
-      <div className="h-[3px] bg-gradient-to-r from-primary via-accent to-primary-light" />
-
-      {/* CTA Banner */}
-      <div className="border-b border-white/10">
-        <Container className="py-16 md:py-20">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div className="max-w-lg">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                Ready to accelerate your <span className="text-gradient">digital journey</span>?
-              </h2>
-              <p className="text-gray-light text-sm leading-relaxed">
-                Let's build something extraordinary together.
-              </p>
-            </div>
-            <a
-              href="/#contact"
-              className="group inline-flex items-center gap-3 bg-primary text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent transition-colors duration-300 flex-shrink-0 rounded-xl"
-            >
-              Get in Touch
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </div>
-        </Container>
-      </div>
-
-      {/* Main Footer */}
-      <Container className="py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <Link to="/" aria-label="Zotus AI Home" className="flex items-center gap-2.5">
-              <img src="/logo-mark.png" alt="Zotus AI" className="h-8 w-auto object-contain" />
-              <span className="text-[20px] font-extrabold tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}>
-                <span className="text-white">Zotus</span>
-                <span className="text-primary-light ml-0.5">AI</span>
-              </span>
-            </Link>
-            <p className="mt-5 text-gray-light text-sm leading-relaxed max-w-xs">
-              Engineering intelligent, scalable software solutions that power digital transformation for enterprises.
+    <footer className="bg-[var(--color-bg-dark)] text-white" role="contentinfo">
+      <Container className="pt-20 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-white/8">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <Logo className="h-9" light />
+            <p className="mt-5 text-sm text-[var(--color-text-tertiary)] leading-relaxed max-w-xs">
+              {siteConfig.description}
             </p>
-            <div className="mt-6 space-y-3">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2.5 text-sm text-gray-light hover:text-white transition-colors"
-              >
-                <Mail className="w-4 h-4 text-primary-light flex-shrink-0" />
+
+            {/* Contact */}
+            <div className="mt-8 space-y-3">
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-sm text-[var(--color-text-tertiary)] hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
                 {siteConfig.email}
               </a>
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="flex items-center gap-2.5 text-sm text-gray-light hover:text-white transition-colors"
-              >
-                <Phone className="w-4 h-4 text-primary-light flex-shrink-0" />
+              <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-[var(--color-text-tertiary)] hover:text-white transition-colors">
+                <Phone className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
                 {siteConfig.phone}
               </a>
-              <div className="flex items-start gap-2.5 text-sm text-gray-light">
-                <MapPin className="w-4 h-4 text-primary-light mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 text-sm text-[var(--color-text-tertiary)]">
+                <MapPin className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
                 <span>
-                  {siteConfig.address.city}, {siteConfig.address.state}, {siteConfig.address.country}
+                  {siteConfig.address.line1},<br />
+                  {siteConfig.address.line2},<br />
+                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                 </span>
               </div>
             </div>
+
+            {/* Social */}
+            <div className="mt-8 flex items-center gap-3">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-[var(--color-text-tertiary)] hover:text-white hover:border-white/25 transition-all duration-200"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d={s.d} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-[11px] font-bold text-white uppercase tracking-[0.2em] mb-5">
-              Company
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { label: 'About Us', href: '/about' },
-                { label: 'Careers', href: '/careers' },
-                { label: 'Contact', href: '/contact' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link to={link.href} className="text-sm text-gray-light hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Link Columns */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title} className="lg:col-span-2">
+              <h4 className="text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
+                {title}
+              </h4>
+              <ul className="space-y-3">
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleClick(e, link.href)}
+                      className="text-sm text-[var(--color-text-tertiary)] hover:text-white transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-          {/* Services */}
-          <div>
-            <h3 className="text-[11px] font-bold text-white uppercase tracking-[0.2em] mb-5">
-              Services
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { label: 'AI Development', href: '/services#ai-development' },
-                { label: 'Machine Learning', href: '/services#machine-learning' },
-                { label: 'Cloud Solutions', href: '/services#cloud-solutions' },
-                { label: 'Custom Software', href: '/services#custom-software' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link to={link.href} className="text-sm text-gray-light hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Registered Office */}
+          <div className="lg:col-span-2">
+            <h4 className="text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
+              Registered Office
+            </h4>
+            <address className="not-italic text-sm text-[var(--color-text-tertiary)] leading-relaxed">
+              {siteConfig.address.line1},<br />
+              {siteConfig.address.line2},<br />
+              {siteConfig.address.city},<br />
+              {siteConfig.address.state}<br />
+              {siteConfig.address.zip}
+            </address>
+            <a
+              href={siteConfig.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
+            >
+              {siteConfig.url.replace('https://', '')}
+            </a>
           </div>
+        </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="text-[11px] font-bold text-white uppercase tracking-[0.2em] mb-5">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { label: 'Privacy Policy', href: '/privacy-policy' },
-                { label: 'Terms of Service', href: '/terms' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link to={link.href} className="text-sm text-gray-light hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {/* Bottom bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[var(--color-text-tertiary)]">
+            © {year} {siteConfig.legalName}. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link to="/privacy-policy" className="text-xs text-[var(--color-text-tertiary)] hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="text-xs text-[var(--color-text-tertiary)] hover:text-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </Container>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <Container className="py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-light">
-            © {currentYear} {siteConfig.legalName}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {Object.entries(siteConfig.social).map(([platform, url]) => (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-light hover:text-white transition-colors"
-                aria-label={`Visit our ${platform}`}
-              >
-                <span className="text-xs font-semibold uppercase tracking-wider capitalize">
-                  {platform}
-                </span>
-              </a>
-            ))}
-          </div>
-        </Container>
-      </div>
     </footer>
   );
 }

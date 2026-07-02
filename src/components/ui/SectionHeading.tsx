@@ -1,49 +1,38 @@
 import { motion } from 'framer-motion';
-import { fadeInUp } from '../../animations/variants';
 
 interface SectionHeadingProps {
-  label?: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: 'left' | 'center';
-  dark?: boolean;
+  light?: boolean;
 }
 
 export default function SectionHeading({
-  label,
+  eyebrow,
   title,
   description,
   align = 'center',
-  dark = false,
+  light = false,
 }: SectionHeadingProps) {
   return (
     <motion.div
-      variants={fadeInUp}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      className={`mb-16 max-w-3xl ${align === 'center' ? 'mx-auto text-center' : 'text-left'}`}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className={`mb-16 lg:mb-20 ${align === 'center' ? 'text-center max-w-2xl mx-auto' : 'max-w-xl'}`}
     >
-      {label && (
-        <span
-          className={`inline-block mb-4 text-sm font-semibold tracking-widest uppercase ${
-            dark ? 'text-primary-light' : 'text-primary'
-          }`}
-        >
-          {label}
+      {eyebrow && (
+        <span className={`eyebrow block mb-4 ${light ? 'text-[var(--color-accent)]' : ''}`}>
+          {eyebrow}
         </span>
       )}
-      <h2
-        className={`text-balance ${dark ? 'text-white' : 'text-dark'}`}
-      >
+      <h2 className={light ? 'text-white' : 'text-[var(--color-text)]'}>
         {title}
       </h2>
       {description && (
-        <p
-          className={`mt-5 text-lg leading-relaxed ${
-            dark ? 'text-gray-light' : 'text-gray'
-          }`}
-        >
+        <p className={`mt-5 text-lg leading-relaxed ${light ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-secondary)]'}`}>
           {description}
         </p>
       )}

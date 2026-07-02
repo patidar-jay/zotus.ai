@@ -1,152 +1,130 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Box, Cpu, Cloud, Smartphone, Monitor, Database, Settings } from 'lucide-react';
+import { ArrowRight, Cloud, Brain, BarChart3, Settings, Smartphone, Globe, Database } from 'lucide-react';
 import { Container } from '../ui';
-import { staggerContainer } from '../../animations/variants';
 
 export default function HeroSection() {
   return (
-    <section
-      id="hero"
-      className="relative overflow-hidden bg-bg min-h-[90vh] flex items-center pt-[80px]"
-      aria-labelledby="hero-heading"
-    >
-      {/* Background glow */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[10%] right-[10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[0%] left-[5%] w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
-        {/* Subtle dot pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.3]"
-          style={{
-            backgroundImage: `radial-gradient(#C4B5FD 1px, transparent 1px)`,
-            backgroundSize: '32px 32px',
-          }}
-        />
+    <section id="hero" className="relative overflow-hidden min-h-screen flex items-center pt-[72px]">
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-[var(--color-accent-light)] rounded-full opacity-30 blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[5%] w-[350px] h-[350px] bg-[var(--color-accent)] rounded-full opacity-10 blur-[100px]" />
       </div>
 
-      <Container className="relative z-10 w-full py-12 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Content */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-start text-left max-w-2xl"
-          >
-            {/* Subtitle */}
-            <motion.div
+      <Container className="relative z-10 py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left — Content (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col items-start">
+            {/* Eyebrow */}
+            <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-6"
+              className="eyebrow mb-6"
             >
-              <span className="text-[11px] font-bold text-primary uppercase tracking-[0.2em]">
-                INTELLIGENT SOLUTIONS. REAL IMPACT.
-              </span>
-            </motion.div>
+              INTELLIGENT SOFTWARE FOR ENTERPRISES
+            </motion.span>
 
             {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              id="hero-heading"
-              className="text-dark font-extrabold leading-[1.1] tracking-tight mb-6"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.25rem)' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="leading-[1.08] tracking-[-0.03em] mb-6"
+              style={{ fontFamily: 'var(--font-heading)', fontWeight: 800 }}
             >
-              Building Intelligent
-              <br />
-              Solutions that
-              <br />
-              <span className="text-primary">Drive Real Impact</span>
+              Building Intelligent{' '}
+              <br className="hidden sm:block" />
+              Software That Powers{' '}
+              <br className="hidden sm:block" />
+              <span className="text-[var(--color-primary)]">Smarter Businesses</span>
             </motion.h1>
 
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg text-gray font-normal leading-relaxed mb-10 max-w-lg"
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg mb-10"
             >
-              Zotus AI delivers AI-powered software solutions, automation, and digital transformation services to help businesses innovate, scale and lead in the digital era.
+              We engineer AI-powered software solutions, automation platforms, and cloud infrastructure that help enterprises innovate, scale, and lead.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-4 mb-10"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap gap-4 mb-12"
             >
               <a
                 href="/#services"
-                className="group inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-3.5 rounded-lg text-sm font-bold hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30"
+                className="group inline-flex items-center gap-2.5 bg-[var(--color-primary)] text-white px-7 py-3.5 rounded-xl text-[15px] font-semibold hover:bg-[var(--color-primary-dark)] transition-all duration-200 shadow-[0_4px_14px_rgba(109,40,217,0.25)] hover:shadow-[0_6px_20px_rgba(109,40,217,0.35)]"
               >
                 Explore Solutions
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary border border-primary/20 px-7 py-3.5 rounded-lg text-sm font-bold hover:bg-primary/5 transition-all duration-300 shadow-sm"
+                className="inline-flex items-center gap-2.5 bg-white text-[var(--color-text)] border border-[var(--color-border)] px-7 py-3.5 rounded-xl text-[15px] font-semibold hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all duration-200"
               >
-                Schedule a Consultation
+                Schedule Consultation
               </a>
             </motion.div>
 
-            {/* Trust avatars */}
+            {/* Trust indicator */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               className="flex items-center gap-4"
             >
-              <div className="flex -space-x-3">
-                <img src="https://i.pravatar.cc/100?img=1" alt="Client" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
-                <img src="https://i.pravatar.cc/100?img=2" alt="Client" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
-                <img src="https://i.pravatar.cc/100?img=3" alt="Client" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
-                <img src="https://i.pravatar.cc/100?img=4" alt="Client" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
+              <div className="flex -space-x-2.5">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <img
+                    key={i}
+                    src={`https://i.pravatar.cc/80?img=${i + 10}`}
+                    alt=""
+                    className="w-9 h-9 rounded-full border-2 border-white object-cover"
+                  />
+                ))}
               </div>
-              <p className="text-xs font-semibold text-gray-dark">
-                Trusted by 100+ startups and enterprises worldwide
+              <p className="text-sm text-[var(--color-text-secondary)] font-medium">
+                Trusted by <span className="text-[var(--color-text)] font-semibold">100+</span> startups and enterprises worldwide
               </p>
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Right Content - 3D Isometric Illustration CSS Approximation */}
+          {/* Right — 3D Illustration (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotateX: 20 }}
-            animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="hidden lg:flex justify-center items-center relative h-[500px]"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
+            className="lg:col-span-5 hidden lg:flex justify-center items-center relative"
+            style={{ minHeight: 480 }}
           >
-            {/* Base platform */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-primary/20 rounded-[40px] transform rotate-x-[60deg] rotate-z-45" style={{ transformStyle: 'preserve-3d' }}>
-              <div className="absolute inset-4 border border-primary/10 rounded-[32px]"></div>
-              <div className="absolute inset-8 border border-primary/5 rounded-[24px]"></div>
-              
-              {/* Connecting lines */}
-              <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-y-1/2"></div>
-              <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-primary/30 to-transparent -translate-x-1/2"></div>
-              <div className="absolute top-0 left-0 w-full h-full border border-primary/20 rounded-[40px] shadow-[0_0_50px_rgba(108,43,217,0.1)]"></div>
+            {/* Central Logo */}
+            <div
+              className="relative z-20 w-32 h-32 rounded-[2rem] bg-white flex items-center justify-center shadow-[0_20px_60px_rgba(109,40,217,0.15)] border border-[var(--color-border-subtle)]"
+              style={{
+                animation: 'float 4s ease-in-out infinite',
+              }}
+            >
+              <img src="/logo-mark.png" alt="Zotus AI" className="w-16 h-16 object-contain" />
             </div>
 
-            {/* Central Block */}
-            <div className="absolute z-20 flex items-center justify-center w-32 h-32 bg-gradient-to-br from-[#8B5CF6] to-[#5B21B6] rounded-3xl shadow-[0_20px_40px_rgba(91,33,182,0.4),inset_0_2px_4px_rgba(255,255,255,0.4)] border border-[#A78BFA] transform -translate-y-8 animate-[float_4s_ease-in-out_infinite]">
-              <span className="text-white font-extrabold text-5xl drop-shadow-md">Z</span>
-              {/* Fake 3D depth */}
-              <div className="absolute -bottom-4 left-0 w-full h-8 bg-gradient-to-b from-[#4C1D95] to-[#31116A] rounded-b-3xl -z-10 transform scale-y-[0.5] translate-y-4 blur-[2px]"></div>
-            </div>
+            {/* Orbiting nodes */}
+            <HeroNode icon={<Cloud className="w-5 h-5" />} label="Cloud" top="5%" left="15%" delay={0} />
+            <HeroNode icon={<Brain className="w-5 h-5" />} label="AI" top="0%" right="20%" delay={0.8} />
+            <HeroNode icon={<BarChart3 className="w-5 h-5" />} label="Analytics" top="35%" right="0%" delay={1.6} />
+            <HeroNode icon={<Settings className="w-5 h-5" />} label="Automation" bottom="10%" right="15%" delay={2.4} />
+            <HeroNode icon={<Smartphone className="w-5 h-5" />} label="Mobile" bottom="5%" left="20%" delay={1.2} />
+            <HeroNode icon={<Globe className="w-5 h-5" />} label="Web" top="40%" left="0%" delay={2} />
+            <HeroNode icon={<Database className="w-5 h-5" />} label="Data" bottom="30%" left="5%" delay={0.4} />
 
-            {/* Floating Nodes */}
-            <Node icon={<Cpu />} label="AI & ML" top="-25%" left="20%" delay="0s" />
-            <Node icon={<Settings />} label="Automation" top="-15%" right="10%" delay="1s" />
-            <Node icon={<Cloud />} label="Cloud" top="35%" right="-5%" delay="2s" />
-            <Node icon={<Database />} label="Data" top="30%" left="-5%" delay="1.5s" />
-            <Node icon={<Monitor />} label="Web" bottom="-5%" left="15%" delay="0.5s" />
-            <Node icon={<Smartphone />} label="Mobile" bottom="-15%" left="50%" delay="2.5s" />
-            <Node icon={<Box />} label="Analytics" bottom="0%" right="10%" delay="1.2s" />
-
+            {/* Connecting rings */}
+            <div className="absolute w-[320px] h-[320px] border border-[var(--color-border)] rounded-full opacity-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'spin-slow 25s linear infinite' }} />
+            <div className="absolute w-[220px] h-[220px] border border-[var(--color-primary)]/15 rounded-full opacity-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'spin-slow 35s linear infinite reverse' }} />
           </motion.div>
         </div>
       </Container>
@@ -154,20 +132,19 @@ export default function HeroSection() {
   );
 }
 
-// Helper for the 3D nodes
-function Node({ icon, label, top, left, right, bottom, delay }: any) {
+function HeroNode({ icon, label, delay, ...pos }: { icon: React.ReactNode; label: string; delay: number; top?: string; left?: string; right?: string; bottom?: string }) {
   return (
-    <div 
-      className="absolute z-10 flex flex-col items-center gap-2"
-      style={{ top, left, right, bottom, animation: `float 3s ease-in-out ${delay} infinite` }}
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay: 0.6 + delay * 0.15 }}
+      className="absolute z-10 flex flex-col items-center gap-1.5"
+      style={{ ...pos, animation: `float ${3 + delay * 0.3}s ease-in-out ${delay * 0.2}s infinite` }}
     >
-      <div className="w-16 h-16 bg-white rounded-2xl shadow-[0_10px_30px_rgba(108,43,217,0.15)] flex items-center justify-center border border-white/50 relative">
-        <div className="text-primary w-8 h-8 flex items-center justify-center">
-          {icon}
-        </div>
-        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-primary/20 blur-[6px] rounded-full -z-10"></div>
+      <div className="w-12 h-12 bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-primary)]">
+        {icon}
       </div>
-      <span className="text-[10px] font-bold text-dark">{label}</span>
-    </div>
+      <span className="text-[10px] font-semibold text-[var(--color-text-secondary)]">{label}</span>
+    </motion.div>
   );
 }

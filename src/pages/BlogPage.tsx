@@ -16,33 +16,33 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
-      <section className="pt-[72px] bg-gradient-to-b from-primary/3 to-white">
-        <Container className="section-py">
+      <section className="pt-[120px] pb-20 bg-[var(--color-bg-subtle)]">
+        <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mx-auto text-center">
-            <span className="inline-block mb-4 text-sm font-semibold tracking-widest uppercase text-primary">Blog</span>
-            <h1>Insights & <span className="text-gradient">Perspectives</span></h1>
-            <p className="mt-6 text-lg text-gray leading-relaxed">
+            <span className="eyebrow mb-4 block">Blog</span>
+            <h1 className="mb-6">Insights & <span className="text-gradient">Perspectives</span></h1>
+            <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
               Thoughts on technology, engineering, design, and building great software products.
             </p>
           </motion.div>
         </Container>
       </section>
 
-      <section className="section-py bg-white">
+      <section className="section-py bg-white border-t border-[var(--color-border-subtle)]">
         <Container>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {posts.map((post) => (
-              <motion.article key={post.slug} variants={fadeInUp} className="group rounded-2xl border border-border overflow-hidden hover:shadow-md hover:border-primary/15 transition-all">
-                <div className="h-48 bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center">
-                  <FileText className="w-12 h-12 text-primary/20" />
+              <motion.article key={post.slug} variants={fadeInUp} className="group rounded-2xl border border-[var(--color-border)] overflow-hidden hover:shadow-lg hover:border-[var(--color-primary)] transition-all bg-white cursor-pointer hover:-translate-y-1 duration-300">
+                <div className="h-56 flex items-center justify-center bg-[var(--color-bg-subtle)] group-hover:bg-[var(--color-accent-light)] transition-colors duration-500">
+                  <FileText className="w-14 h-14 text-[var(--color-border)] group-hover:text-[var(--color-primary)]/40 transition-colors" />
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/5 text-primary">{post.category}</span>
-                    <span className="flex items-center gap-1 text-xs text-gray-light"><Clock className="w-3 h-3" />{post.date}</span>
+                <div className="p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-md bg-[var(--color-primary)]/10 text-[var(--color-primary)]">{post.category}</span>
+                    <span className="flex items-center gap-1.5 text-[11px] font-semibold text-[var(--color-text-tertiary)] uppercase tracking-wider"><Clock className="w-3.5 h-3.5" />{post.date}</span>
                   </div>
-                  <h3 className="text-base font-semibold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">{post.title}</h3>
-                  <p className="text-sm text-gray leading-relaxed">{post.excerpt}</p>
+                  <h3 className="text-xl font-bold text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors leading-snug" style={{ fontFamily: 'var(--font-heading)' }}>{post.title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{post.excerpt}</p>
                 </div>
               </motion.article>
             ))}

@@ -1,47 +1,69 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Container } from '../ui';
 import { stats } from '../../constants/stats';
-import { useCountUp } from '../../hooks/useCountUp';
-import { fadeInUp, staggerContainer } from '../../animations/variants';
 
-function StatItem({ icon: Icon, value, suffix, label }: (typeof stats)[0]) {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const count = useCountUp(value, 2000, inView);
+function useCountUp(end: number, duration = 2000) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  return (
-    <motion.div
-      ref={ref}
-      variants={fadeInUp}
-      className="text-center"
-    >
-      <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-4">
-        <Icon className="w-6 h-6 text-primary-light" />
-      </div>
-      <div className="text-4xl md:text-5xl font-extrabold text-white mb-2 font-heading">
-        {count}{suffix}
-      </div>
-      <p className="text-sm text-gray-light font-medium">{label}</p>
-    </motion.div>
-  );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    let start = 0;
+    const startTime = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      setCount(Math.floor(eased * end));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [started, end, duration]);
+
+  return { count, ref };
 }
 
 export default function StatsSection() {
   return (
-    <section className="bg-dark section-py-sm" aria-label="Company statistics">
+    <section className="py-20 bg-white border-y border-[var(--color-border-subtle)]">
       <Container>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
-        >
-          {stats.map((stat) => (
-            <StatItem key={stat.label} {...stat} />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, idx) => (
+            <StatItem key={idx} stat={stat} />
           ))}
-        </motion.div>
+        </div>
       </Container>
     </section>
+  );
+}
+
+function StatItem({ stat }: { stat: typeof stats[0] }) {
+  const { count, ref } = useCountUp(stat.value);
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="text-center"
+    >
+      <div className="text-5xl font-extrabold text-[var(--color-primary)] mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+        {count}{stat.suffix}
+      </div>
+      <div className="text-sm font-medium text-[var(--color-text-secondary)] uppercase tracking-wider">
+        {stat.label}
+      </div>
+    </motion.div>
   );
 }
