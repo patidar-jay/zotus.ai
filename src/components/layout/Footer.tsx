@@ -173,16 +173,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Location Dropdown (Mobile Like Screenshot) */}
-        <div className="lg:hidden mt-8 w-full">
-          <div className="flex items-center justify-between px-4 py-3 bg-white/5 rounded-lg border border-white/10">
-            <div className="flex items-center gap-2 text-sm text-white/80">
-              <MapPin className="w-4 h-4" />
-              <span>Location</span>
-            </div>
-            <ChevronDown className="w-4 h-4 text-white/50" />
-          </div>
-        </div>
+
 
         {/* Bottom bar matching the screenshot style */}
         <div className="pt-8 mt-4 lg:mt-0 flex flex-col items-start lg:flex-row lg:items-center justify-between gap-6">
