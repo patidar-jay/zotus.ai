@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ChevronDown, ArrowUp } from 'lucide-react';
 import Logo from './Logo';
 import { Container } from '../ui';
 import { siteConfig } from '../../config/site';
@@ -39,9 +40,18 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [openSection, setOpenSection] = useState<string | null>(null);
   const year = new Date().getFullYear();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const toggleSection = (title: string) => {
+    setOpenSection(openSection === title ? null : title);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -64,25 +74,24 @@ export default function Footer() {
         }, 150);
       }
     } else if (href === '/') {
+      scrollToTop();
       navigate('/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate(href);
     }
   };
 
   return (
-    <footer className="bg-[var(--color-bg-dark)] text-white" role="contentinfo">
-      <Container className="pt-20 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-white/8">
-          {/* Brand */}
-          <div className="lg:col-span-4">
+    <footer className="bg-[var(--color-bg-dark)] text-white border-t border-white/10" role="contentinfo">
+      <Container className="pt-16 lg:pt-20 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-8 pb-12 lg:pb-16 border-b border-white/10">
+          
+          {/* Brand - Desktop Only (moved to bottom on mobile) */}
+          <div className="hidden lg:block lg:col-span-4">
             <Logo className="h-9" light />
             <p className="mt-5 text-sm text-[var(--color-text-tertiary)] leading-relaxed max-w-xs">
               {siteConfig.description}
             </p>
-
-            {/* Contact */}
             <div className="mt-8 space-y-3">
               <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-sm text-[var(--color-text-tertiary)] hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
@@ -101,33 +110,22 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-
-            {/* Social */}
-            <div className="mt-8 flex items-center gap-3">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.name}
-                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-[var(--color-text-tertiary)] hover:text-white hover:border-white/25 transition-all duration-200"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={s.d} />
-                  </svg>
-                </a>
-              ))}
-            </div>
           </div>
 
-          {/* Link Columns */}
+          {/* Dynamic Accordion Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="lg:col-span-2">
-              <h4 className="text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
+              <h4 className="hidden lg:block text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
                 {title}
               </h4>
-              <ul className="space-y-3">
+              <button 
+                onClick={() => toggleSection(title)}
+                className="lg:hidden w-full flex items-center justify-between py-4 text-left border-b border-white/10"
+              >
+                <span className="text-[15px] font-medium text-white/90">{title}</span>
+                <ChevronDown className={`w-5 h-5 text-white/50 transition-transform duration-300 ${openSection === title ? 'rotate-180' : ''}`} />
+              </button>
+              <ul className={`space-y-3 pt-4 lg:pt-0 pb-4 lg:pb-0 ${openSection === title ? 'block' : 'hidden lg:block'}`}>
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
@@ -143,42 +141,92 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Registered Office */}
+          {/* Registered Office (Accordion on Mobile) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
+            <h4 className="hidden lg:block text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
               Registered Office
             </h4>
-            <address className="not-italic text-sm text-[var(--color-text-tertiary)] leading-relaxed">
-              {siteConfig.address.line1},<br />
-              {siteConfig.address.line2},<br />
-              {siteConfig.address.city},<br />
-              {siteConfig.address.state}<br />
-              {siteConfig.address.zip}
-            </address>
-            <a
-              href={siteConfig.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
+            <button 
+              onClick={() => toggleSection('Office')}
+              className="lg:hidden w-full flex items-center justify-between py-4 text-left border-b border-white/10"
             >
-              {siteConfig.url.replace('https://', '')}
-            </a>
+              <span className="text-[15px] font-medium text-white/90">Registered Office</span>
+              <ChevronDown className={`w-5 h-5 text-white/50 transition-transform duration-300 ${openSection === 'Office' ? 'rotate-180' : ''}`} />
+            </button>
+            <div className={`pt-4 lg:pt-0 pb-4 lg:pb-0 ${openSection === 'Office' ? 'block' : 'hidden lg:block'}`}>
+              <address className="not-italic text-sm text-[var(--color-text-tertiary)] leading-relaxed">
+                {siteConfig.address.line1},<br />
+                {siteConfig.address.line2},<br />
+                {siteConfig.address.city},<br />
+                {siteConfig.address.state}<br />
+                {siteConfig.address.zip}
+              </address>
+            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[var(--color-text-tertiary)]">
-            © {year} {siteConfig.legalName}. All rights reserved.
+        {/* Mobile Brand Info (below accordion) */}
+        <div className="lg:hidden mt-8 mb-8 space-y-4">
+          <Logo className="h-8" light />
+          <p className="text-sm text-[var(--color-text-tertiary)] max-w-xs">
+            {siteConfig.description}
           </p>
-          <div className="flex items-center gap-6">
-            <Link to="/privacy-policy" className="text-xs text-[var(--color-text-tertiary)] hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-xs text-[var(--color-text-tertiary)] hover:text-white transition-colors">
-              Terms of Service
-            </Link>
+        </div>
+
+        {/* Location Dropdown (Mobile Like Screenshot) */}
+        <div className="lg:hidden mt-8 w-full">
+          <div className="flex items-center justify-between px-4 py-3 bg-white/5 rounded-lg border border-white/10">
+            <div className="flex items-center gap-2 text-sm text-white/80">
+              <MapPin className="w-4 h-4" />
+              <span>Location</span>
+            </div>
+            <ChevronDown className="w-4 h-4 text-white/50" />
           </div>
+        </div>
+
+        {/* Bottom bar matching the screenshot style */}
+        <div className="pt-8 mt-4 lg:mt-0 flex flex-col items-start lg:flex-row lg:items-center justify-between gap-6">
+          <p className="text-[13px] text-[var(--color-text-tertiary)]">
+            Copyright © {year} {siteConfig.legalName}
+          </p>
+          
+          <div className="w-full lg:w-auto flex items-center justify-between lg:justify-end gap-6">
+            <div className="flex items-center gap-4">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  className="w-8 h-8 flex items-center justify-center text-[var(--color-text-tertiary)] hover:text-white transition-colors"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d={s.d} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+
+            {/* Back to top button */}
+            <button 
+              onClick={scrollToTop}
+              className="w-10 h-10 rounded-full border border-[var(--color-primary)] flex items-center justify-center text-[var(--color-primary)] bg-[var(--color-primary)]/10 hover:bg-[var(--color-primary)]/20 transition-colors shrink-0"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Extra Legal Links */}
+        <div className="mt-6 flex flex-wrap items-center gap-4 lg:justify-end">
+          <Link to="/privacy-policy" className="text-[13px] text-[var(--color-text-tertiary)] hover:text-white transition-colors">
+            Privacy Policy
+          </Link>
+          <Link to="/terms" className="text-[13px] text-[var(--color-text-tertiary)] hover:text-white transition-colors">
+            Terms of Service
+          </Link>
         </div>
       </Container>
     </footer>
