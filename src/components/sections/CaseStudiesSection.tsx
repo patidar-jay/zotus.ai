@@ -19,13 +19,13 @@ export default function CaseStudiesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-6 px-6 hide-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:snap-none md:pb-0 md:-mx-0 md:px-0"
         >
           {caseStudies.map((study) => (
             <motion.article
               key={study.slug}
               variants={fadeInUp}
-              className="group rounded-2xl border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-300 bg-white"
+              className="group rounded-2xl border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-300 bg-white flex flex-col w-[85vw] sm:w-[320px] shrink-0 snap-center md:w-auto"
             >
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
@@ -49,11 +49,11 @@ export default function CaseStudiesSection() {
                 </h3>
 
                 <div className="space-y-3 mb-6">
-                  <div>
+                  <div className="hidden md:block">
                     <span className="text-[10px] font-bold text-[var(--color-text-tertiary)] uppercase tracking-wider">Problem</span>
                     <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-2 mt-1">{study.problem}</p>
                   </div>
-                  <div>
+                  <div className="hidden md:block">
                     <span className="text-[10px] font-bold text-[var(--color-text-tertiary)] uppercase tracking-wider">Solution</span>
                     <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-2 mt-1">{study.solution}</p>
                   </div>

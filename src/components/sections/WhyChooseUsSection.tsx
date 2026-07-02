@@ -55,7 +55,7 @@ export default function WhyChooseUsSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="lg:col-span-8 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-6 px-6 hide-scrollbar md:grid md:grid-cols-2 md:overflow-visible md:snap-none md:pb-0 md:-mx-0 md:px-0"
           >
             {features.map((f) => {
               const Icon = f.icon;
@@ -63,7 +63,7 @@ export default function WhyChooseUsSection() {
                 <motion.div
                   key={f.title}
                   variants={fadeInUp}
-                  className="flex gap-4 p-5 rounded-xl border border-white/[0.06] hover:border-white/[0.12] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
+                  className="flex gap-4 p-5 rounded-xl border border-white/[0.06] hover:border-white/[0.12] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 w-[85vw] sm:w-[300px] shrink-0 snap-center md:w-auto"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-[var(--color-accent)]" strokeWidth={1.5} />

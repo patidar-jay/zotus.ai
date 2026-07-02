@@ -19,7 +19,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-6 px-6 hide-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:snap-none md:pb-0 md:-mx-0 md:px-0"
         >
           {services.map((service) => {
             const Icon = service.icon;
@@ -27,7 +27,7 @@ export default function ServicesSection() {
               <motion.div
                 key={service.slug}
                 variants={fadeInUp}
-                className="group relative bg-white rounded-2xl p-8 border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                className="group relative bg-white rounded-2xl p-8 border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-all duration-300 hover:-translate-y-1 flex flex-col w-[85vw] sm:w-[320px] shrink-0 snap-center md:w-auto"
               >
                 <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-light)] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
                   <Icon className="w-6 h-6 text-[var(--color-primary)]" strokeWidth={1.5} />
