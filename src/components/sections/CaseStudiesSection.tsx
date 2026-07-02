@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Container, SectionHeading } from '../ui';
@@ -5,6 +6,18 @@ import { caseStudies } from '../../constants/caseStudies';
 import { staggerContainer, fadeInUp } from '../../animations/variants';
 
 export default function CaseStudiesSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const scrollPosition = el.scrollLeft;
+    const itemWidth = el.scrollWidth / caseStudies.length;
+    const newIndex = Math.round(scrollPosition / itemWidth);
+    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < caseStudies.length) {
+      setActiveIndex(newIndex);
+    }
+  };
+
   return (
     <section id="case-studies" className="section-py bg-white">
       <Container>
@@ -19,6 +32,7 @@ export default function CaseStudiesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
+          onScroll={handleScroll}
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-6 px-6 hide-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:snap-none md:pb-0 md:-mx-0 md:px-0"
         >
           {caseStudies.map((study) => (
@@ -74,6 +88,18 @@ export default function CaseStudiesSection() {
             </motion.article>
           ))}
         </motion.div>
+
+        {/* Mobile Pagination Dots */}
+        <div className="flex justify-center gap-2 mt-4 md:hidden">
+          {caseStudies.map((_, i) => (
+            <div
+              key={i}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'w-6 bg-[var(--color-primary)]' : 'w-1.5 bg-[var(--color-border)]'
+              }`}
+            />
+          ))}
+        </div>
       </Container>
     </section>
   );

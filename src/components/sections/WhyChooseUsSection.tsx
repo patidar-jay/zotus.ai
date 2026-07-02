@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Users, Shield, RefreshCw, Maximize, Cloud, Brain, Trophy, Lightbulb } from 'lucide-react';
 import { Container } from '../ui';
@@ -16,6 +17,18 @@ const features: WhyUsFeature[] = [
 ];
 
 export default function WhyChooseUsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const scrollPosition = el.scrollLeft;
+    const itemWidth = el.scrollWidth / features.length;
+    const newIndex = Math.round(scrollPosition / itemWidth);
+    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < features.length) {
+      setActiveIndex(newIndex);
+    }
+  };
+
   return (
     <section id="about" className="section-py bg-[var(--color-bg-dark)] relative overflow-hidden">
       {/* Subtle purple glow */}
@@ -55,6 +68,7 @@ export default function WhyChooseUsSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
+            onScroll={handleScroll}
             className="lg:col-span-8 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-6 px-6 hide-scrollbar md:grid md:grid-cols-2 md:overflow-visible md:snap-none md:pb-0 md:-mx-0 md:px-0"
           >
             {features.map((f) => {
@@ -76,6 +90,18 @@ export default function WhyChooseUsSection() {
               );
             })}
           </motion.div>
+        </div>
+
+        {/* Mobile Pagination Dots */}
+        <div className="flex justify-center gap-2 mt-8 md:hidden">
+          {features.map((_, i) => (
+            <div
+              key={i}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'w-6 bg-[var(--color-primary)]' : 'w-1.5 bg-white/20'
+              }`}
+            />
+          ))}
         </div>
       </Container>
     </section>
