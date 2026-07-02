@@ -21,21 +21,18 @@ const navLinks = [
 const mobileGroups = [
   {
     links: [
-      { label: 'Navigate your next', href: '/' },
+      { label: 'Home', href: '/' },
+      { label: 'Solutions', href: '/#services' },
       { label: 'Industries', href: '/#industries' },
-      { label: 'Services', href: '/#services' },
-      { label: 'Platforms', href: '/#services' },
-      { label: 'Infosys Knowledge Institute', href: '/#about' },
-      { label: 'About Us', href: '/#about' },
+      { label: 'Case Studies', href: '/#case-studies' },
+      { label: 'About', href: '/#about' },
     ]
   },
   {
     links: [
-      { label: 'Investors', href: '/#about' },
       { label: 'Careers', href: '/careers' },
-      { label: 'Newsroom', href: '/blog' },
-      { label: 'Blogs', href: '/blog' },
-      { label: 'Contact Us', href: '/#contact' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Contact', href: '/#contact' },
     ]
   }
 ];
