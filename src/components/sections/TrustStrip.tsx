@@ -20,9 +20,12 @@ export default function TrustStrip() {
         <p className="eyebrow text-center text-[var(--color-text-tertiary)] mb-8 text-[11px]">
           TRUSTED BY INNOVATIVE COMPANIES
         </p>
-        <div className="relative overflow-hidden">
+        <div 
+          className="relative overflow-hidden" 
+          style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+        >
           <div
-            className="flex items-center gap-16 whitespace-nowrap"
+            className="flex items-center gap-12 sm:gap-16 whitespace-nowrap w-max"
             style={{ animation: 'marquee 40s linear infinite' }}
           >
             {[...logos, ...logos].map((logo, i) => (
