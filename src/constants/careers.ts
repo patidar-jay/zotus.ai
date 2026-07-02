@@ -1,4 +1,11 @@
-import type { JobPosition } from '../types';
+export interface JobPosition {
+  title: string;
+  type: string;
+  location: string;
+  department: string;
+  description: string;
+  requirements: string[];
+}
 
 export const positions: JobPosition[] = [
   {

@@ -19,7 +19,6 @@ function useCountUp(end: number, duration = 2000) {
 
   useEffect(() => {
     if (!started) return;
-    let start = 0;
     const startTime = performance.now();
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1);
