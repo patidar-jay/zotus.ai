@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { Container, SectionHeading, Button } from '../ui';
 import { siteConfig } from '../../config/site';
 import { fadeInLeft, fadeInRight } from '../../animations/variants';
@@ -77,15 +77,6 @@ export default function ContactSection() {
                   <div className="pt-1">
                     <p className="text-sm font-bold text-[var(--color-text)] mb-1">Email</p>
                     <p className="text-sm text-[var(--color-text-secondary)]">{siteConfig.email}</p>
-                  </div>
-                </a>
-                <a href={`tel:${siteConfig.phone}`} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--color-bg-subtle)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-accent-light)] transition-colors">
-                    <Phone className="w-5 h-5 text-[var(--color-primary)]" />
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-sm font-bold text-[var(--color-text)] mb-1">Phone</p>
-                    <p className="text-sm text-[var(--color-text-secondary)]">{siteConfig.phone}</p>
                   </div>
                 </a>
                 <div className="flex items-start gap-4 group">

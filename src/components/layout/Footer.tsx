@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Mail, Phone, MapPin, ChevronDown, ArrowUp } from 'lucide-react';
+import { Mail, MapPin, ChevronDown, ArrowUp } from 'lucide-react';
 import Logo from './Logo';
 import { Container } from '../ui';
 import { siteConfig } from '../../config/site';
@@ -85,10 +85,6 @@ export default function Footer() {
               <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-sm text-[var(--color-text-tertiary)] hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
                 {siteConfig.email}
-              </a>
-              <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-[var(--color-text-tertiary)] hover:text-white transition-colors">
-                <Phone className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
-                {siteConfig.phone}
               </a>
               <div className="flex items-start gap-3 text-sm text-[var(--color-text-tertiary)]">
                 <MapPin className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />

@@ -6,7 +6,6 @@ export const siteConfig = {
     'Zotus AI builds smart AI-powered solutions — from intelligent camera monitoring to custom automation — helping businesses solve real-world problems with cutting-edge technology.',
   url: 'https://zotus.ai',
   email: 'zotusai@gmail.com',
-  phone: '+91 9669666460',
   address: {
     line1: '65/A, Sector-B, Amrit Palace',
     line2: 'Nipaniya, Vijay Nagar',
