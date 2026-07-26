@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import PlatformPage from './pages/PlatformPage';
 import CaseStudiesPage from './pages/CaseStudiesPage';
@@ -16,10 +14,8 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/platform" element={<PlatformPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />

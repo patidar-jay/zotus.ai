@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { Shield, Radio, Bell, Warehouse, LayoutDashboard, Settings } from 'lucide-react';
 import { Container } from '../ui';
 
-const chips1 = ['Exam Monitoring', 'Live Surveillance', 'Smart Alerts', 'Warehouse Security', 'Admin Dashboard', 'Custom Automation',
+const chips1 = ['Exam Proctoring', 'Live Surveillance', 'Smart Alerts', 'Warehouse Security', 'Admin Dashboard', 'Custom Automation',
   'Incident Reports', 'Access Control', 'Audit Trail', 'AI Analytics', 'Quality Control', 'Performance Reports'];
-const chips2 = ['Proctoring', 'Alerts', 'Dashboard', 'Reports', 'Analytics', 'Automation', 'Security', 'Integration',
-  'Monitoring', 'Surveillance', 'Compliance', 'Insights'];
+const chips2 = ['Real-time Monitoring', 'Alert Engine', 'Dashboard Analytics', 'Compliance Reports', 'Automated Workflows', 'Security Zones',
+  'Multi-camera Feed', 'Identity Verification', 'Incident Logging', 'Zone Management', 'Behavioral Analysis', 'Report Generation'];
 
-/* SVG illustration components for each card — like TBrain's animated card art */
+/* Animated SVG illustrations for each card */
 function CameraEyeSvg({ color }: { color: string }) {
   return (
     <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
@@ -144,12 +144,12 @@ function GearSvg({ color }: { color: string }) {
 }
 
 const products = [
-  { icon: Shield, title: 'Exam Monitoring', subtitle: 'Proctoring · Integrity · Compliance', color: '#A78BFA', href: '/case-studies', Illustration: CameraEyeSvg },
-  { icon: Radio, title: 'Live Surveillance', subtitle: 'Real-time · Multi-camera · Alerts', color: '#10B981', href: '/platform', Illustration: MonitorSvg },
-  { icon: Bell, title: 'Smart Alerts', subtitle: 'Instant · Automated · Accurate', color: '#6C3CF4', href: '/platform', Illustration: AlertWaveSvg },
-  { icon: Warehouse, title: 'Warehouse Security', subtitle: 'Inventory · Access · Prevention', color: '#F59E0B', href: '/case-studies', Illustration: WarehouseGridSvg },
-  { icon: LayoutDashboard, title: 'Admin Dashboard', subtitle: 'Control · Reports · Analytics', color: '#EC4899', href: '/platform', Illustration: DashboardBarsSvg },
-  { icon: Settings, title: 'Custom Automation', subtitle: 'Workflows · Integration · Scale', color: '#14B8A6', href: '/platform', Illustration: GearSvg },
+  { icon: Shield, title: 'Exam Monitoring', subtitle: 'Proctoring · Integrity · Compliance', desc: 'End-to-end AI-powered exam proctoring across government and entrance exams, not estimated from rules, for real-time fraud prevention and compliance assurance.', color: '#A78BFA', href: '/case-studies', Illustration: CameraEyeSvg },
+  { icon: Radio, title: 'Live Surveillance', subtitle: 'Real-time · Multi-camera · Alerts', desc: 'Multi-zone, multi-camera live monitoring with instant anomaly detection and automated incident capture across all deployment sites.', color: '#10B981', href: '/platform', Illustration: MonitorSvg },
+  { icon: Bell, title: 'Smart Alerts', subtitle: 'Instant · Automated · Accurate', desc: 'Configurable alert engine with sub-200ms notification delivery, severity classification, and escalation workflows built for mission-critical environments.', color: '#6C3CF4', href: '/platform', Illustration: AlertWaveSvg },
+  { icon: Warehouse, title: 'Warehouse Security', subtitle: 'Inventory · Access · Prevention', desc: 'Intelligent perimeter and zone monitoring for warehouses and storage facilities with heat-mapping, intrusion detection, and after-hours coverage.', color: '#F59E0B', href: '/case-studies', Illustration: WarehouseGridSvg },
+  { icon: LayoutDashboard, title: 'Admin Dashboard', subtitle: 'Control · Reports · Analytics', desc: 'Centralized command-and-control dashboard with real-time feeds, audit logs, performance analytics, and exportable compliance reports.', color: '#EC4899', href: '/platform', Illustration: DashboardBarsSvg },
+  { icon: Settings, title: 'Custom Automation', subtitle: 'Workflows · Integration · Scale', desc: 'Tailored automation pipelines that integrate with your existing infrastructure — custom alert rules, API hooks, and deployment-specific workflows.', color: '#14B8A6', href: '/platform', Illustration: GearSvg },
 ];
 
 export default function ProductSection() {
@@ -172,42 +172,44 @@ export default function ProductSection() {
               ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
             ))}
           </div>
-          <div className="flex gap-3 mt-4 mq-r" style={{ width: 'max-content' }}>
-            {[...chips2, ...chips2].map((c, i) => (
-              <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap backdrop-blur-lg"
-                style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.08)', color: 'var(--color-text-secondary)' }}
-              ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
-            ))}
+          <div className="relative mt-4">
+            <div className="flex gap-3 mq-r" style={{ width: 'max-content' }}>
+              {[...chips2, ...chips2].map((c, i) => (
+                <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap backdrop-blur-lg"
+                  style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.08)', color: 'var(--color-text-secondary)' }}
+                ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="absolute inset-y-0 left-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(90deg, var(--color-bg) 0%, transparent 100%)' }} />
-        <div className="absolute inset-y-0 right-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(-90deg, var(--color-bg) 0%, transparent 100%)' }} />
+        <div aria-hidden="true" className="absolute inset-y-0 left-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(90deg, var(--color-bg) 0%, transparent 100%)' }} />
+        <div aria-hidden="true" className="absolute inset-y-0 right-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(-90deg, var(--color-bg) 0%, transparent 100%)' }} />
       </section>
 
-      {/* Product Cards with animated SVG illustrations */}
-      <section id="product" className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 pointer-events-none opacity-60" style={{
+      {/* Product Cards */}
+      <section id="products" className="relative overflow-hidden py-24 md:py-32">
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none opacity-60" style={{
           backgroundImage: 'linear-gradient(rgba(109,40,217,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.03) 1px, transparent 1px)',
           backgroundSize: '64px 64px', maskImage: 'radial-gradient(ellipse at center top, black 30%, transparent 85%)', WebkitMaskImage: 'radial-gradient(ellipse at center top, black 30%, transparent 85%)',
         }} />
-        <div className="absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(108,60,244,0.10) 0%, transparent 65%)', filter: 'blur(60px)' }} />
-        <div className="absolute -bottom-40 right-1/4 h-[500px] w-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 65%)', filter: 'blur(60px)' }} />
+        <div aria-hidden="true" className="absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(108,60,244,0.10) 0%, transparent 65%)', filter: 'blur(60px)' }} />
+        <div aria-hidden="true" className="absolute -bottom-40 right-1/4 h-[500px] w-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 65%)', filter: 'blur(60px)' }} />
 
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="text-center mb-14 md:mb-20">
               <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>What we build</span>
               <h2 className="text-4xl md:text-6xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
-                Solutions,{' '}
+                Monitoring solutions,{' '}
                 <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>purpose-built</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-                Six capabilities. One intelligent platform.
+                Six capabilities. One intelligent monitoring layer. From exam halls to warehouses, we ship the gold-standard solution your team can&apos;t build in-house.
               </p>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-[minmax(320px,auto)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-[minmax(280px,auto)]">
             {products.map((p, i) => {
               const Icon = p.icon;
               const Illust = p.Illustration;
@@ -217,27 +219,24 @@ export default function ProductSection() {
                     <a className="group relative block h-full overflow-hidden rounded-3xl p-6 md:p-8"
                       style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }} href={p.href}
                     >
-                      {/* Hover glow */}
-                      <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full transition-opacity duration-700 group-hover:opacity-100 opacity-40 pointer-events-none"
+                      <div aria-hidden="true" className="absolute -top-16 -right-16 h-40 w-40 rounded-full transition-opacity duration-700 group-hover:opacity-100 opacity-40 pointer-events-none"
                         style={{ background: `radial-gradient(circle, ${p.color}44 0%, transparent 70%)`, filter: 'blur(28px)' }}
                       />
-
-                      {/* Animated SVG illustration */}
                       <div aria-hidden="true" className="absolute inset-0 flex items-end justify-end pointer-events-none opacity-70">
                         <Illust color={p.color} />
                       </div>
-
                       <div className="relative z-10 flex flex-col h-full">
                         <div className="flex items-start justify-between mb-4">
                           <span className="flex h-11 w-11 items-center justify-center rounded-xl" style={{ background: `${p.color}22`, color: p.color, border: `1px solid ${p.color}33` }}>
                             <Icon className="h-5 w-5" />
                           </span>
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                            className="transition-transform duration-500 group-hover:rotate-45 group-hover:translate-x-1 opacity-30 group-hover:opacity-60" style={{ color: 'var(--color-text-secondary)' }}
+                            className="transition-transform duration-500 group-hover:rotate-45 group-hover:translate-x-1" style={{ color: 'var(--color-text-secondary)', opacity: 0.4 }}
                           ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                         </div>
                         <h3 className="text-2xl md:text-3xl font-semibold" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)' }}>{p.title}</h3>
                         <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-secondary)' }}>{p.subtitle}</p>
+                        <p className="mt-4 text-sm leading-relaxed max-w-md" style={{ color: 'var(--color-text-secondary)' }}>{p.desc}</p>
                       </div>
                     </a>
                   </div>
