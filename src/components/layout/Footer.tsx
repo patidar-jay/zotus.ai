@@ -9,26 +9,14 @@ const footerLinks = {
   'Quick Links': [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/#about' },
-    { label: 'Case Studies', href: '/#case-studies' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/#contact' },
   ],
   'Services': [
     { label: 'Artificial Intelligence', href: '/#services' },
     { label: 'Machine Learning', href: '/#services' },
+    { label: 'Computer Vision', href: '/#services' },
     { label: 'Custom Software', href: '/#services' },
-    { label: 'Mobile Apps', href: '/#services' },
-    { label: 'Cloud & DevOps', href: '/#services' },
-    { label: 'Data Analytics', href: '/#services' },
-  ],
-  'Industries': [
-    { label: 'Healthcare', href: '/#industries' },
-    { label: 'Finance', href: '/#industries' },
-    { label: 'Manufacturing', href: '/#industries' },
-    { label: 'Education', href: '/#industries' },
-    { label: 'Retail', href: '/#industries' },
-    { label: 'Logistics', href: '/#industries' },
+    { label: 'Smart Automation', href: '/#services' },
   ],
 };
 
@@ -86,7 +74,7 @@ export default function Footer() {
       <Container className="pt-16 lg:pt-20 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-8 pb-12 lg:pb-16 border-b border-white/10">
           
-          {/* Brand - Desktop Only (moved to bottom on mobile) */}
+          {/* Brand - Desktop Only */}
           <div className="hidden lg:block lg:col-span-4">
             <Logo className="h-9" light />
             <p className="mt-5 text-sm text-[var(--color-text-tertiary)] leading-relaxed max-w-xs">
@@ -141,7 +129,7 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Registered Office (Accordion on Mobile) */}
+          {/* Registered Office */}
           <div className="lg:col-span-2">
             <h4 className="hidden lg:block text-xs font-bold text-white/80 uppercase tracking-[0.15em] mb-5">
               Registered Office
@@ -165,7 +153,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Mobile Brand Info (below accordion) */}
+        {/* Mobile Brand Info */}
         <div className="lg:hidden mt-8 mb-8 space-y-4">
           <Logo className="h-8" light />
           <p className="text-sm text-[var(--color-text-tertiary)] max-w-xs">
@@ -173,9 +161,7 @@ export default function Footer() {
           </p>
         </div>
 
-
-
-        {/* Bottom bar matching the screenshot style */}
+        {/* Bottom bar */}
         <div className="pt-8 mt-4 lg:mt-0 flex flex-col items-start lg:flex-row lg:items-center justify-between gap-6">
           <p className="text-[13px] text-[var(--color-text-tertiary)]">
             Copyright © {year} {siteConfig.legalName}
@@ -199,7 +185,7 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Back to top button */}
+            {/* Back to top */}
             <button 
               onClick={scrollToTop}
               className="w-10 h-10 rounded-full border border-[var(--color-primary)] flex items-center justify-center text-[var(--color-primary)] bg-[var(--color-primary)]/10 hover:bg-[var(--color-primary)]/20 transition-colors shrink-0"
@@ -210,7 +196,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Extra Legal Links */}
+        {/* Legal Links */}
         <div className="mt-6 flex flex-wrap items-center gap-4 lg:justify-end">
           <Link to="/privacy-policy" className="text-[13px] text-[var(--color-text-tertiary)] hover:text-white transition-colors">
             Privacy Policy

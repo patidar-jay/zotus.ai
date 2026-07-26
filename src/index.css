@@ -35,6 +35,12 @@
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+
+  /* New Tokens */
+  --color-glow: rgba(168, 85, 247, 0.15);
+  --color-glow-strong: rgba(168, 85, 247, 0.3);
+  --gradient-primary: linear-gradient(135deg, #6D28D9, #A855F7);
+  --gradient-mesh: linear-gradient(135deg, #6D28D9 0%, #7C3AED 25%, #A855F7 50%, #C084FC 75%, #6D28D9 100%);
 }
 
 /* ── Base ── */
@@ -127,11 +133,53 @@
     background-clip: text;
   }
 
+  /* New Utility Classes */
+  .glass {
+    backdrop-filter: blur(24px);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--color-border);
+  }
+  
+  .glass-dark {
+    backdrop-filter: blur(24px);
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-glow {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 8px 40px rgba(109, 40, 217, 0.25);
+  }
+
+  .text-shimmer {
+    background: var(--gradient-mesh);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
   /* ── Scrollbar ── */
-  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: var(--color-bg); }
-  ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--color-text-tertiary); }
+  ::-webkit-scrollbar-thumb { 
+    background: rgba(168, 85, 247, 0.5);
+    border-radius: 4px; 
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(109, 40, 217, 0.8); }
 }
 
 /* ── Animations ── */
@@ -146,4 +194,29 @@
 @keyframes spin-slow {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* New Keyframes */
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes slide-up {
+  0% { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

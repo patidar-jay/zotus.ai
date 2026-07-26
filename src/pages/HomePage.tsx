@@ -1,11 +1,8 @@
 import {
   HeroSection,
-  TrustStrip,
+  ProductSection,
   ServicesSection,
   WhyChooseUsSection,
-  IndustriesSection,
-  CaseStudiesSection,
-  TestimonialsSection,
   CTASection,
 } from '../components/sections';
 
@@ -13,12 +10,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TrustStrip />
+      <ProductSection />
       <ServicesSection />
       <WhyChooseUsSection />
-      <IndustriesSection />
-      <CaseStudiesSection />
-      <TestimonialsSection />
       <CTASection />
     </>
   );

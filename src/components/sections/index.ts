@@ -1,11 +1,6 @@
 export { default as HeroSection } from './HeroSection';
-export { default as TrustStrip } from './TrustStrip';
+export { default as ProductSection } from './ProductSection';
 export { default as ServicesSection } from './ServicesSection';
 export { default as WhyChooseUsSection } from './WhyChooseUsSection';
-export { default as StatsSection } from './StatsSection';
-export { default as IndustriesSection } from './IndustriesSection';
-export { default as ProcessSection } from './ProcessSection';
-export { default as CaseStudiesSection } from './CaseStudiesSection';
-export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as CTASection } from './CTASection';
 export { default as ContactSection } from './ContactSection';

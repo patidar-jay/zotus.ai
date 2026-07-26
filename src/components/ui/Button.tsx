@@ -19,15 +19,15 @@ const baseStyles =
 
 const variants = {
   primary:
-    'bg-primary text-white hover:bg-primary-dark shadow-sm hover:shadow-md active:scale-[0.98]',
+    'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow-md active:scale-[0.98]',
   secondary:
-    'bg-primary/10 text-primary hover:bg-primary/20 active:scale-[0.98]',
+    'bg-[var(--color-primary)]/10 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/20 active:scale-[0.98]',
   outline:
-    'border-2 border-border text-dark hover:border-primary hover:text-primary active:scale-[0.98]',
+    'border-2 border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] active:scale-[0.98]',
   ghost:
-    'text-gray hover:text-dark hover:bg-bg-subtle active:scale-[0.98]',
+    'text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] active:scale-[0.98]',
   white:
-    'bg-white text-dark hover:bg-bg-subtle shadow-sm hover:shadow-md active:scale-[0.98]',
+    'bg-white text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] shadow-sm hover:shadow-md active:scale-[0.98]',
 };
 
 const sizes = {

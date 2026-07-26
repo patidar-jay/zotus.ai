@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: 'Zotus AI',
   legalName: 'Zotus AI Private Limited',
-  tagline: 'Building Intelligent Software That Powers Smarter Businesses',
+  tagline: 'Smart AI Solutions That Solve Real Problems',
   description:
-    'Zotus AI delivers AI-powered software solutions, automation, and digital transformation services to help businesses innovate, scale, and lead in the digital era.',
+    'Zotus AI builds smart AI-powered solutions — from intelligent camera monitoring to custom automation — helping businesses solve real-world problems with cutting-edge technology.',
   url: 'https://zotus.ai',
   email: 'zotusai@gmail.com',
   phone: '+91 9669666460',

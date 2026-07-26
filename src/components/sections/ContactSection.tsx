@@ -7,6 +7,7 @@ import { fadeInLeft, fadeInRight } from '../../animations/variants';
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '', email: '', company: '', phone: '', service: '', message: '',
   });
@@ -15,9 +16,40 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            _subject: `New Contact Inquiry from ${formData.name}`,
+            Name: formData.name,
+            Email: formData.email,
+            Phone: formData.phone || 'N/A',
+            Company: formData.company || 'N/A',
+            Service: formData.service || 'N/A',
+            Message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', company: '', phone: '', service: '', message: '' });
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -111,13 +143,11 @@ export default function ContactSection() {
                   <label htmlFor="service" className="block text-sm font-semibold text-[var(--color-text)] mb-2">Service Interested In</label>
                   <select id="service" name="service" className={inputClass} value={formData.service} onChange={handleChange}>
                     <option value="">Select a service</option>
-                    <option value="ai">AI Development</option>
+                    <option value="ai">Artificial Intelligence</option>
                     <option value="ml">Machine Learning</option>
+                    <option value="cv">Computer Vision</option>
                     <option value="software">Custom Software</option>
-                    <option value="web">Web Development</option>
-                    <option value="mobile">Mobile Development</option>
-                    <option value="cloud">Cloud Solutions</option>
-                    <option value="consulting">Consulting</option>
+                    <option value="automation">Smart Automation</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -125,9 +155,15 @@ export default function ContactSection() {
                   <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-text)] mb-2">Project Details *</label>
                   <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project, goals, and timeline..." className={inputClass} value={formData.message} onChange={handleChange} />
                 </div>
-                <Button type="submit" size="lg" className="w-full">
-                  <Send className="w-5 h-5" />
-                  Send Message
+                <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                  {loading ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             )}

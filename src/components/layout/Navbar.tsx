@@ -10,11 +10,7 @@ import { siteConfig } from '../../config/site';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Solutions', href: '/#services' },
-  { label: 'Industries', href: '/#industries' },
-  { label: 'Case Studies', href: '/#case-studies' },
   { label: 'About', href: '/#about' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -23,15 +19,11 @@ const mobileGroups = [
     links: [
       { label: 'Home', href: '/' },
       { label: 'Solutions', href: '/#services' },
-      { label: 'Industries', href: '/#industries' },
-      { label: 'Case Studies', href: '/#case-studies' },
       { label: 'About', href: '/#about' },
     ]
   },
   {
     links: [
-      { label: 'Careers', href: '/careers' },
-      { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/#contact' },
     ]
   }
@@ -135,8 +127,7 @@ export default function Navbar() {
           {/* Desktop CTA — Right */}
           <div className="hidden lg:block">
             <a
-              href="/#contact"
-              onClick={(e) => handleNavClick(e, '/#contact')}
+              href="/contact"
               className="group inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold hover:bg-[var(--color-primary-dark)] transition-colors duration-200"
             >
               Get Started
@@ -157,7 +148,7 @@ export default function Navbar() {
       </Container>
     </header>
 
-    {/* Mobile Sidebar (Rendered outside header to escape backdrop-filter stacking context) */}
+    {/* Mobile Sidebar */}
     <AnimatePresence>
       {mobileOpen && (
         <>
