@@ -1,155 +1,134 @@
 import { motion } from 'framer-motion';
-import { Shield, Radio, Bell, Warehouse, LayoutDashboard, Settings } from 'lucide-react';
+import { Bot, Terminal, Video, FileText, ShieldCheck, Users } from 'lucide-react';
 import { Container } from '../ui';
 
-const chips1 = ['Exam Proctoring', 'Live Surveillance', 'Smart Alerts', 'Warehouse Security', 'Admin Dashboard', 'Custom Automation',
-  'Incident Reports', 'Access Control', 'Audit Trail', 'AI Analytics', 'Quality Control', 'Performance Reports'];
-const chips2 = ['Real-time Monitoring', 'Alert Engine', 'Dashboard Analytics', 'Compliance Reports', 'Automated Workflows', 'Security Zones',
-  'Multi-camera Feed', 'Identity Verification', 'Incident Logging', 'Zone Management', 'Behavioral Analysis', 'Report Generation'];
+const chips1 = ['Motion capture', 'Humanoid control', 'Sim-to-real', 'Agent benchmarks', 'Tool-use traces', 'Video annotation',
+  'Instance segmentation', 'Semantic masks', 'RLHF preference', 'Red-team evals', 'Active learning', 'AI-native QC'];
+const chips2 = ['Data labeling', 'Model grading', 'Prompt engineering', 'Reward modeling', 'Code review', 'Expert annotation',
+  'Quality assurance', 'Multimodal data', 'Safety testing', 'Agentic traces', 'Fine-tuning sets', 'Evaluation pipelines'];
 
-/* Animated SVG illustrations for each card */
-function CameraEyeSvg({ color }: { color: string }) {
+/* Animated SVG illustrations */
+function HumanoidSvg({ color }: { color: string }) {
   return (
     <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
-      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <ellipse cx="280" cy="150" rx="60" ry="45" opacity="0.3" />
-        <ellipse cx="280" cy="150" rx="40" ry="30" opacity="0.5" />
-        <circle cx="280" cy="150" r="12" fill="currentColor" opacity="0.6">
-          <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" />
-        </circle>
-        <line x1="220" y1="150" x2="140" y2="100" opacity="0.3" strokeDasharray="4 4">
-          <animate attributeName="strokeDashoffset" values="0;8" dur="1.5s" repeatCount="indefinite" />
-        </line>
-        <line x1="220" y1="150" x2="140" y2="200" opacity="0.3" strokeDasharray="4 4">
-          <animate attributeName="strokeDashoffset" values="0;8" dur="1.5s" repeatCount="indefinite" />
-        </line>
-        <rect x="120" y="85" width="40" height="30" rx="4" opacity="0.25" />
-        <rect x="120" y="185" width="40" height="30" rx="4" opacity="0.25" />
-        <circle cx="340" cy="150" r="4" opacity="0.4"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="1.5s" repeatCount="indefinite" /></circle>
-      </g>
-    </svg>
-  );
-}
-
-function MonitorSvg({ color }: { color: string }) {
-  return (
-    <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
-      <g fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-        <rect x="200" y="60" width="160" height="110" rx="8" opacity="0.4" />
-        <rect x="210" y="70" width="140" height="90" rx="4" opacity="0.15" fill="currentColor" />
-        {[0, 1, 2, 3].map(i => (
-          <line key={i} x1={220} y1={85 + i * 18} x2={340} y2={85 + i * 18} opacity="0.25" strokeDasharray="3 3">
-            <animate attributeName="x2" values={`${300 + i * 10};${340};${300 + i * 10}`} dur={`${2 + i * 0.3}s`} repeatCount="indefinite" />
-          </line>
-        ))}
-        <circle cx="330" cy="82" r="5" fill="currentColor" opacity="0.5">
-          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" />
-        </circle>
-        <line x1="280" y1="170" x2="280" y2="190" opacity="0.3" />
-        <line x1="260" y1="190" x2="300" y2="190" opacity="0.3" />
-      </g>
-    </svg>
-  );
-}
-
-function AlertWaveSvg({ color }: { color: string }) {
-  return (
-    <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
-      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <path d="M270 130 A20 20 0 0 1 290 150 L270 170 Z" fill="currentColor" opacity="0.5" />
-        <circle cx="280" cy="180" r="3" fill="currentColor" opacity="0.6" />
-        {[30, 50, 70].map((r, i) => (
-          <circle key={i} cx="280" cy="150" r={r} opacity="0.15" strokeDasharray="4 6">
-            <animate attributeName="r" values={`${r};${r + 10};${r}`} dur={`${1.5 + i * 0.4}s`} repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.15;0.3;0.15" dur={`${1.5 + i * 0.4}s`} repeatCount="indefinite" />
+      <g fill="currentColor" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+        <circle cx="280" cy="70" r="10" /><line x1="280" y1="80" x2="280" y2="160" />
+        <line x1="280" y1="100" x2="235" y2="140" /><line x1="280" y1="100" x2="325" y2="140" />
+        <line x1="235" y1="140" x2="215" y2="180" /><line x1="325" y1="140" x2="350" y2="175" />
+        <line x1="280" y1="160" x2="255" y2="225" /><line x1="280" y1="160" x2="305" y2="225" />
+        <line x1="255" y1="225" x2="245" y2="275" /><line x1="305" y1="225" x2="320" y2="275" />
+        {[{cx:280,cy:70},{cx:280,cy:100},{cx:280,cy:160},{cx:235,cy:140},{cx:325,cy:140},{cx:215,cy:180},{cx:350,cy:175},{cx:255,cy:225},{cx:305,cy:225},{cx:245,cy:275},{cx:320,cy:275}].map((p,i) => (
+          <circle key={i} cx={p.cx} cy={p.cy} r="2.4" opacity="0.7">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur={`${1.5 + i * 0.18}s`} repeatCount="indefinite" />
           </circle>
         ))}
       </g>
+      <path d="M 100 250 Q 150 180, 200 220 T 300 200" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 4" opacity="0.35">
+        <animate attributeName="strokeDashoffset" values="0;14" dur="3s" repeatCount="indefinite" />
+      </path>
     </svg>
   );
 }
 
-function WarehouseGridSvg({ color }: { color: string }) {
+function TerminalSvg({ color }: { color: string }) {
   return (
     <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
-      <g fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-        {[0, 1, 2].map(row =>
-          [0, 1, 2, 3].map(col => (
-            <rect key={`${row}-${col}`} x={210 + col * 35} y={80 + row * 50} width="28" height="40" rx="3" opacity="0.2" fill="currentColor">
-              <animate attributeName="opacity" values="0.15;0.35;0.15" dur={`${2 + (row + col) * 0.3}s`} repeatCount="indefinite" />
-            </rect>
-          ))
-        )}
-        <path d="M205 70 L280 45 L355 70" opacity="0.3" />
-        <line x1="205" y1="70" x2="205" y2="240" opacity="0.2" />
-        <line x1="355" y1="70" x2="355" y2="240" opacity="0.2" />
+      <g fill="none" stroke="currentColor" strokeWidth="1.4">
+        <rect x="180" y="160" width="200" height="120" rx="8" opacity="0.3" fill="#0D1117" />
+        <rect x="188" y="168" width="184" height="104" rx="4" opacity="0.15" fill="currentColor" />
+        <text x="196" y="188" fill="currentColor" fontSize="10" fontFamily="monospace" opacity="0.5">$ run --task agent.clone</text>
+        <text x="196" y="204" fill="currentColor" fontSize="10" fontFamily="monospace" opacity="0.4">→ step 3/7 · searching...</text>
+        <text x="196" y="220" fill="currentColor" fontSize="10" fontFamily="monospace" opacity="0.4">✓ test 4 passed</text>
+        <rect x="196" y="230" width="8" height="12" fill="currentColor" opacity="0.6">
+          <animate attributeName="opacity" values="0.6;0;0.6" dur="1s" repeatCount="indefinite" />
+        </rect>
       </g>
     </svg>
   );
 }
 
-function DashboardBarsSvg({ color }: { color: string }) {
+function BarChartSvg({ color }: { color: string }) {
   return (
     <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
       <g fill="currentColor" stroke="currentColor" strokeWidth="1.2">
         <rect x="200" y="55" width="165" height="120" rx="8" fill="none" opacity="0.3" />
-        {[0, 1, 2, 3, 4, 5, 6, 7].map(i => {
-          const h = 30 + Math.sin(i * 0.8) * 25 + i * 5;
+        {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].map(i => {
+          const h = 10 + Math.abs(Math.sin(i * 0.6)) * 45;
           return (
-            <rect key={i} x={215 + i * 18} y={165 - h} width="12" height={h} rx="2" opacity="0.4"
+            <rect key={i} x={208 + i * 7.5} y={165 - h} width="5" height={h} rx="1" opacity="0.5"
               style={{ filter: `drop-shadow(0 0 4px ${color}44)` }}
             >
-              <animate attributeName="height" values={`${h};${h + 15};${h}`} dur={`${1.8 + i * 0.15}s`} repeatCount="indefinite" />
-              <animate attributeName="y" values={`${165 - h};${150 - h};${165 - h}`} dur={`${1.8 + i * 0.15}s`} repeatCount="indefinite" />
+              <animate attributeName="height" values={`${h};${h + 12};${h}`} dur={`${1.8 + i * 0.06}s`} repeatCount="indefinite" />
+              <animate attributeName="y" values={`${165 - h};${153 - h};${165 - h}`} dur={`${1.8 + i * 0.06}s`} repeatCount="indefinite" />
             </rect>
           );
         })}
-        <line x1="210" y1="168" x2="360" y2="168" stroke="currentColor" opacity="0.2" fill="none" />
+        <line x1="205" y1="168" x2="362" y2="168" stroke="currentColor" opacity="0.2" fill="none" />
       </g>
     </svg>
   );
 }
 
-function GearSvg({ color }: { color: string }) {
+function WordCloudSvg({ color }: { color: string }) {
+  const words = ['prompt','reward','safety','align','eval','bias','score','rank','grade','compare'];
   return (
     <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
-      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" style={{ transformOrigin: '280px 150px' }}>
-        <animateTransform attributeName="transform" type="rotate" values="0 280 150;360 280 150" dur="20s" repeatCount="indefinite" />
-        {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => {
-          const rad = (deg * Math.PI) / 180;
-          const x1 = 280 + Math.cos(rad) * 35;
-          const y1 = 150 + Math.sin(rad) * 35;
-          const x2 = 280 + Math.cos(rad) * 50;
-          const y2 = 150 + Math.sin(rad) * 50;
-          return <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2} opacity="0.4" strokeWidth="6" strokeLinecap="round" />;
-        })}
-        <circle cx="280" cy="150" r="35" opacity="0.3" />
-        <circle cx="280" cy="150" r="15" opacity="0.5" fill="currentColor" />
+      {words.map((w, i) => (
+        <text key={w} x={200 + (i % 3) * 55} y={80 + Math.floor(i / 3) * 40 + (i % 2) * 15} fill="currentColor"
+          fontSize={10 + (i % 3) * 3} fontFamily="monospace" opacity={0.2 + (i % 4) * 0.12}
+        >
+          <animate attributeName="opacity" values={`${0.2 + (i % 4) * 0.1};${0.5 + (i % 3) * 0.1};${0.2 + (i % 4) * 0.1}`} dur={`${2 + i * 0.3}s`} repeatCount="indefinite" />
+          {w}
+        </text>
+      ))}
+    </svg>
+  );
+}
+
+function QualityMeterSvg({ color }: { color: string }) {
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
+      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+        <path d="M 230 200 A 60 60 0 0 1 330 200" opacity="0.3" />
+        <path d="M 238 190 A 50 50 0 0 1 322 190" opacity="0.2" />
+        <line x1="280" y1="200" x2="310" y2="160" opacity="0.5" strokeWidth="2">
+          <animateTransform attributeName="transform" type="rotate" values="-30 280 200;30 280 200;-30 280 200" dur="3s" repeatCount="indefinite" />
+        </line>
+        <circle cx="280" cy="200" r="5" fill="currentColor" opacity="0.6" />
+        <text x="260" y="230" fill="currentColor" fontSize="14" fontFamily="monospace" opacity="0.4">98.7%</text>
+        {[0,1,2,3,4].map(i => (
+          <circle key={i} cx={240 + i * 20} cy="250" r="3" fill="currentColor" opacity={i < 4 ? 0.5 : 0.15} />
+        ))}
       </g>
-      <g fill="none" stroke="currentColor" strokeWidth="1.2" opacity="0.25" style={{ transformOrigin: '220px 200px' }}>
-        <animateTransform attributeName="transform" type="rotate" values="360 220 200;0 220 200" dur="15s" repeatCount="indefinite" />
-        {[0, 60, 120, 180, 240, 300].map(deg => {
-          const rad = (deg * Math.PI) / 180;
-          const x1 = 220 + Math.cos(rad) * 18;
-          const y1 = 200 + Math.sin(rad) * 18;
-          const x2 = 220 + Math.cos(rad) * 28;
-          const y2 = 200 + Math.sin(rad) * 28;
-          return <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="4" strokeLinecap="round" />;
-        })}
-        <circle cx="220" cy="200" r="18" />
-        <circle cx="220" cy="200" r="7" fill="currentColor" />
+    </svg>
+  );
+}
+
+function ProfileCardsSvg({ color }: { color: string }) {
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-auto" style={{ color, filter: `drop-shadow(0 0 20px ${color}55)` }}>
+      <g fill="none" stroke="currentColor" strokeWidth="1.2">
+        {[0, 1, 2].map(i => (
+          <g key={i} opacity={0.3 + i * 0.15}>
+            <rect x={210 + i * 45} y={80 + i * 30} width="100" height="130" rx="10" fill="currentColor" opacity="0.08" stroke="currentColor" />
+            <circle cx={260 + i * 45} cy={115 + i * 30} r="15" fill="currentColor" opacity="0.15" />
+            <line x1={230 + i * 45} y1={145 + i * 30} x2={290 + i * 45} y2={145 + i * 30} opacity="0.25" />
+            <line x1={235 + i * 45} y1={158 + i * 30} x2={285 + i * 45} y2={158 + i * 30} opacity="0.15" />
+            <line x1={240 + i * 45} y1={170 + i * 30} x2={280 + i * 45} y2={170 + i * 30} opacity="0.1" />
+          </g>
+        ))}
       </g>
     </svg>
   );
 }
 
 const products = [
-  { icon: Shield, title: 'Exam Monitoring', subtitle: 'Proctoring · Integrity · Compliance', desc: 'End-to-end AI-powered exam proctoring across government and entrance exams, not estimated from rules, for real-time fraud prevention and compliance assurance.', color: '#A78BFA', href: '/case-studies', Illustration: CameraEyeSvg },
-  { icon: Radio, title: 'Live Surveillance', subtitle: 'Real-time · Multi-camera · Alerts', desc: 'Multi-zone, multi-camera live monitoring with instant anomaly detection and automated incident capture across all deployment sites.', color: '#10B981', href: '/platform', Illustration: MonitorSvg },
-  { icon: Bell, title: 'Smart Alerts', subtitle: 'Instant · Automated · Accurate', desc: 'Configurable alert engine with sub-200ms notification delivery, severity classification, and escalation workflows built for mission-critical environments.', color: '#6C3CF4', href: '/platform', Illustration: AlertWaveSvg },
-  { icon: Warehouse, title: 'Warehouse Security', subtitle: 'Inventory · Access · Prevention', desc: 'Intelligent perimeter and zone monitoring for warehouses and storage facilities with heat-mapping, intrusion detection, and after-hours coverage.', color: '#F59E0B', href: '/case-studies', Illustration: WarehouseGridSvg },
-  { icon: LayoutDashboard, title: 'Admin Dashboard', subtitle: 'Control · Reports · Analytics', desc: 'Centralized command-and-control dashboard with real-time feeds, audit logs, performance analytics, and exportable compliance reports.', color: '#EC4899', href: '/platform', Illustration: DashboardBarsSvg },
-  { icon: Settings, title: 'Custom Automation', subtitle: 'Workflows · Integration · Scale', desc: 'Tailored automation pipelines that integrate with your existing infrastructure — custom alert rules, API hooks, and deployment-specific workflows.', color: '#14B8A6', href: '/platform', Illustration: GearSvg },
+  { icon: Bot, title: 'Physical AI', subtitle: 'Motion capture · Humanoid control · Sim-to-real', desc: 'Lab-grade human motion capture — not estimated from video — for training humanoid policies, imitation learning, and embodied agents.', color: '#A78BFA', href: '/platform', Illustration: HumanoidSvg },
+  { icon: Terminal, title: 'Agentic Evaluation', subtitle: 'Agent benchmarks · Tool-use traces · Grading', desc: 'Multi-step, tool-using agent tasks with ground-truth traces and automated grading pipelines built for rigorous evaluation at scale.', color: '#10B981', href: '/platform', Illustration: TerminalSvg },
+  { icon: Video, title: 'Video & Image', subtitle: 'Annotation · Segmentation · Multimodal', desc: 'Pixel-perfect video and image annotation — instance segmentation, semantic masks, 3D bounding boxes, and temporal tracking for vision models.', color: '#6C3CF4', href: '/platform', Illustration: BarChartSvg },
+  { icon: FileText, title: 'Text QC & RLHF', subtitle: 'Preference · Reward modeling · SFT', desc: 'Human preference data, reward model training sets, and supervised fine-tuning datasets curated by domain experts for alignment.', color: '#F59E0B', href: '/platform', Illustration: WordCloudSvg },
+  { icon: ShieldCheck, title: 'AI-Native QC', subtitle: 'Quality · Consensus · Active learning', desc: 'Model-in-the-loop quality assurance with consensus scoring, inter-annotator agreement tracking, and intelligent re-routing of ambiguous samples.', color: '#EC4899', href: '/platform', Illustration: QualityMeterSvg },
+  { icon: Users, title: 'Expert Network', subtitle: 'Domain experts · Managed teams · Scale', desc: 'On-demand access to vetted domain experts — software engineers, PhDs, linguists, and subject-matter specialists — managed end-to-end.', color: '#14B8A6', href: '/platform', Illustration: ProfileCardsSvg },
 ];
 
 export default function ProductSection() {
@@ -200,11 +179,11 @@ export default function ProductSection() {
             <div className="text-center mb-14 md:mb-20">
               <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>What we build</span>
               <h2 className="text-4xl md:text-6xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
-                Monitoring solutions,{' '}
+                Data programs,{' '}
                 <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>purpose-built</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-                Six capabilities. One intelligent monitoring layer. From exam halls to warehouses, we ship the gold-standard solution your team can&apos;t build in-house.
+                Six capabilities. One human infrastructure layer. From embodied AI to agent evals, we ship the gold-standard dataset your team can&apos;t assemble in-house.
               </p>
             </div>
           </motion.div>

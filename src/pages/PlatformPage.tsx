@@ -1,32 +1,32 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Camera, Cpu, Bell, BarChart3, Shield, Zap, Clock, Activity, ChevronRight, Monitor, Users, Lock, FileText } from 'lucide-react';
+import { ArrowRight, Database, Cpu, ShieldCheck, BarChart3, Layers, GitBranch, Users, Globe, Award, ChevronRight } from 'lucide-react';
 import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 
 const steps = [
-  { step: '01', icon: Camera, title: 'Capture', color: '#6C3CF4' },
-  { step: '02', icon: Cpu, title: 'Process', color: '#A855F7' },
-  { step: '03', icon: Bell, title: 'Alert', color: '#10B981' },
-  { step: '04', icon: BarChart3, title: 'Report', color: '#F59E0B' },
+  { step: '01', icon: Database, title: 'Ingest', color: '#6C3CF4' },
+  { step: '02', icon: Layers, title: 'Annotate', color: '#A855F7' },
+  { step: '03', icon: ShieldCheck, title: 'QC', color: '#10B981' },
+  { step: '04', icon: GitBranch, title: 'Deliver', color: '#F59E0B' },
+];
+
+const capabilities = [
+  { icon: Cpu, title: 'Custom Pipelines', color: '#6C3CF4' },
+  { icon: ShieldCheck, title: 'Quality Gates', color: '#10B981' },
+  { icon: Users, title: 'Expert Routing', color: '#A78BFA' },
+  { icon: BarChart3, title: 'Live Analytics', color: '#F59E0B' },
+  { icon: Layers, title: 'Multi-format', color: '#EC4899' },
+  { icon: GitBranch, title: 'API Delivery', color: '#14B8A6' },
 ];
 
 const stats = [
-  { value: '99.2%', label: 'Accuracy', icon: Shield },
-  { value: '<200ms', label: 'Response', icon: Zap },
-  { value: '50K+', label: 'Hours Monitored', icon: Clock },
-  { value: '15+', label: 'Deployments', icon: Activity },
+  { value: '10M+', label: 'Annotations', icon: Award },
+  { value: '99.4%', label: 'Quality Score', icon: ShieldCheck },
+  { value: '2,500+', label: 'Domain Experts', icon: Users },
+  { value: '40+', label: 'Clients', icon: Globe },
 ];
 
-const features = [
-  { icon: Monitor, title: 'Live Monitoring', color: '#6C3CF4' },
-  { icon: Bell, title: 'Smart Alerts', color: '#10B981' },
-  { icon: Users, title: 'Multi-Zone Control', color: '#A78BFA' },
-  { icon: Lock, title: 'Access Management', color: '#F59E0B' },
-  { icon: BarChart3, title: 'Analytics Dashboard', color: '#EC4899' },
-  { icon: FileText, title: 'Audit Reports', color: '#14B8A6' },
-];
-
-const chips = ['Monitoring', 'Alerts', 'Dashboard', 'Reports', 'Analytics', 'Automation', 'Security', 'Integration'];
+const chips = ['Data Labeling', 'RLHF', 'Segmentation', 'Agent Evals', 'Reward Modeling', 'Code Review', 'QC', 'Fine-tuning'];
 
 export default function PlatformPage() {
   return (
@@ -50,12 +50,16 @@ export default function PlatformPage() {
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-heading)' }}
             >
+              The{' '}
               <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                Exam AI Monitoring
+                Data Factory
               </span>
-              {' '}Solution.
+              {' '}for AI.
             </motion.h1>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap justify-center gap-4 mt-10">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
+              className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-xl mx-auto mb-10"
+            >From raw data to production-ready training sets — one platform for annotation, quality, and delivery.</motion.p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="flex flex-wrap justify-center gap-4">
               <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
                 style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }}
               >Request a Demo <ArrowRight className="w-4 h-4" /></a>
@@ -82,14 +86,14 @@ export default function PlatformPage() {
         <div className="absolute inset-y-0 right-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(-90deg, var(--color-bg) 0%, transparent 100%)' }} />
       </section>
 
-      {/* Pipeline — names only */}
+      {/* Pipeline */}
       <section className="py-24 md:py-32 relative overflow-hidden">
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14 md:mb-20">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>How It Works</span>
             <h2 className="text-4xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
               Four steps.{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>One platform.</span>
+              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>One pipeline.</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -113,7 +117,7 @@ export default function PlatformPage() {
         </Container>
       </section>
 
-      {/* Features — names only */}
+      {/* Capabilities */}
       <section className="py-20 md:py-28 relative" style={{ background: 'var(--color-bg-subtle)' }}>
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
@@ -124,7 +128,7 @@ export default function PlatformPage() {
             </h2>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-            {features.map((f, i) => {
+            {capabilities.map((f, i) => {
               const Icon = f.icon;
               return (
                 <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
@@ -144,13 +148,6 @@ export default function PlatformPage() {
       {/* Stats */}
       <section className="py-20 md:py-28 relative">
         <Container className="relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>Performance</span>
-            <h2 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
-              Numbers that{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>speak.</span>
-            </h2>
-          </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((s, i) => {
               const Icon = s.icon;

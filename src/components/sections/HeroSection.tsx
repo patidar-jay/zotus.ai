@@ -22,7 +22,6 @@ export default function HeroSection() {
         }
       `}</style>
 
-      {/* Video-like animated gradient background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-[-50%] opacity-[0.55]" style={{
           background: 'conic-gradient(from 180deg at 50% 50%, #1a0533 0deg, #0c1222 60deg, #1a0a2e 120deg, #0d1b2a 180deg, #1a0533 240deg, #0f172a 300deg, #1a0533 360deg)',
@@ -36,7 +35,6 @@ export default function HeroSection() {
         <div className="mesh-c absolute bottom-[-30%] left-[25%] w-[55vw] h-[55vw] rounded-full opacity-[0.08] blur-[90px]" style={{ background: '#10B981' }} />
       </div>
 
-      {/* Grid overlay */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
         backgroundImage: 'linear-gradient(rgba(109,40,217,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.06) 1px, transparent 1px)',
         backgroundSize: '80px 80px', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
@@ -55,7 +53,7 @@ export default function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10B981] opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#10B981]" />
           </span>
-          <span style={{ color: 'var(--color-text-secondary)' }}>Trusted by leading institutions</span>
+          <span style={{ color: 'var(--color-text-secondary)' }}>Trusted by frontier AI labs</span>
           <Sparkles className="h-3 w-3" style={{ color: '#A78BFA' }} />
         </motion.div>
 
@@ -63,26 +61,30 @@ export default function HeroSection() {
           className="text-center font-semibold text-[44px] md:text-[72px] lg:text-[80px] leading-[1.05]"
           style={{ fontFamily: 'var(--font-heading)', maxWidth: 1100 }}
         >
+          <span>Trusted </span>
           <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Exam AI Monitoring
+            Human Infrastructure
           </span>
-          <span> Solution.</span>
+          <span> for </span>
+          <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Agentic AI.
+          </span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
           className="mx-auto mt-8 max-w-2xl text-center text-lg md:text-xl leading-relaxed"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          The intelligent monitoring platform behind exam proctoring,
+          The data engine behind coding, robotics, agentic workflows,
           <br className="hidden md:block" />
-          warehouse security, and enterprise surveillance programs.
+          world models, evaluation, and post-training programs for frontier AI teams.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm uppercase tracking-wider"
           style={{ color: 'var(--color-text-tertiary)' }}
         >
-          {['Exam Proctoring', 'Warehouse Security', 'Live Monitoring', 'Smart Alerts', 'Analytics', 'Automation'].map((item, i, arr) => (
+          {['Coding', 'Agentic Workflows', 'Robotics', 'World Models', 'Model Evaluation', 'RLHF / SFT'].map((item, i, arr) => (
             <span key={item} className="flex items-center gap-6">
               <span>{item}</span>
               {i < arr.length - 1 && <span className="h-3 w-px" style={{ background: 'var(--color-border)' }} />}

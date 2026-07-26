@@ -20,10 +20,10 @@ export default function CTASection() {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-4xl md:text-6xl font-semibold text-white leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-            Ready to get started?
+            Ready to scale your data programs?
           </h2>
           <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-xl mx-auto">
-            Talk to our team about Exam AI Monitoring Solution for your organization.
+            Talk to our team about building custom data pipelines for your AI models.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} href="/contact"
