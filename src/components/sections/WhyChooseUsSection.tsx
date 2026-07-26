@@ -1,111 +1,119 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Brain, Lightbulb, Users, Zap } from 'lucide-react';
+import { Brain, Lightbulb, Users, Zap } from 'lucide-react';
 import { Container } from '../ui';
-import { staggerContainer, fadeInUp } from '../../animations/variants';
 
-const features = [
-  { icon: Brain, title: 'AI-First Approach', description: 'AI and machine learning are at the core of everything we build — not an afterthought.' },
-  { icon: Users, title: 'Dedicated Team', description: 'Passionate engineers who work alongside you, not just as vendors but as partners.' },
-  { icon: Zap, title: 'Fast Delivery', description: 'Agile, iterative development with transparent progress and quick turnarounds.' },
-  { icon: Lightbulb, title: 'Innovation-Driven', description: 'We use cutting-edge technologies and research-backed approaches to solve real problems.' },
+const pillars = [
+  {
+    number: '01',
+    icon: Brain,
+    title: 'AI-First Approach',
+    description: 'AI and machine learning are at the core of everything we build — not an afterthought. Every solution is powered by real computer vision and deep learning.',
+    color: '#6C3CF4',
+  },
+  {
+    number: '02',
+    icon: Zap,
+    title: 'Real-Time Performance',
+    description: 'Sub-200ms detection latency. Our AI processes live video feeds and triggers alerts instantly — critical for exam proctoring and security monitoring.',
+    color: '#10B981',
+  },
+  {
+    number: '03',
+    icon: Users,
+    title: 'Dedicated Operations Team',
+    description: 'Passionate engineers who work alongside you, not just as vendors but as partners. 24/7 monitoring support during critical deployments.',
+    color: '#F59E0B',
+  },
+  {
+    number: '04',
+    icon: Lightbulb,
+    title: 'Rapid Deployment',
+    description: 'From scoping to go-live in under 2 weeks. Our battle-tested deployment playbook gets you up and running fast with custom configurations.',
+    color: '#EC4899',
+  },
 ];
 
 export default function WhyChooseUsSection() {
   return (
-    <section id="about" className="section-py bg-[var(--color-bg-dark)] relative overflow-hidden">
-      {/* Animated gradient orbs */}
-      <motion.div
-        animate={{ y: [0, -30, 0], opacity: [0.03, 0.05, 0.03] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)' }}
-      />
-      <motion.div
-        animate={{ y: [0, 40, 0], opacity: [0.02, 0.04, 0.02] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[100px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, var(--color-accent) 0%, transparent 70%)' }}
-      />
-      <motion.div
-        animate={{ scale: [1, 1.1, 1], opacity: [0.02, 0.05, 0.02] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/2 left-1/2 w-[700px] h-[700px] rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 80%)' }}
-      />
-
-      {/* Floating dots */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 3 + i, repeat: Infinity, delay: i * 0.5, ease: "easeInOut" }}
-          className="absolute w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/40 pointer-events-none"
-          style={{
-            top: `${20 + i * 15}%`,
-            left: `${10 + (i % 2) * 70 + i * 5}%`,
-          }}
-        />
-      ))}
+    <section id="about" className="relative overflow-hidden py-24 md:py-32">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 90% 70% at 20% 30%, rgba(108,60,244,0.06) 0%, transparent 55%), radial-gradient(ellipse 80% 60% at 80% 70%, rgba(16,185,129,0.05) 0%, transparent 55%)',
+      }} />
 
       <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          {/* Left — Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="lg:col-span-5 relative pl-6"
-          >
-            {/* Vertical gradient line accent */}
-            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[var(--color-primary)] to-transparent rounded-full" />
-            
-            <span className="eyebrow text-[var(--color-accent)] mb-5 block">
-              WHY ZOTUS AI
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14 md:mb-20"
+        >
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>
+            Why Zotus AI
+          </span>
+          <h2 className="text-4xl md:text-6xl font-semibold" style={{ fontFamily: 'var(--font-heading)', letterSpacing: 0 }}>
+            Quality your team{' '}
+            <span style={{
+              background: 'linear-gradient(120deg, #A78BFA, #10B981)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
+              can trust.
             </span>
-            <h2 className="text-white mb-6 leading-tight">
-              Smart Solutions Built With Real AI
-            </h2>
-            <p className="text-[var(--color-text-tertiary)] leading-relaxed mb-10">
-              We don't just talk about AI — we build with it. From intelligent monitoring systems to custom automation, every solution we deliver is powered by real machine learning.
-            </p>
-            <a
-              href="/#contact"
-              className="group inline-flex items-center gap-2.5 bg-[var(--color-primary)] text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-[var(--color-accent)] transition-colors duration-200"
-            >
-              Work With Us
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </a>
-          </motion.div>
+          </h2>
+        </motion.div>
 
-          {/* Right — Features */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
-            {features.map((f) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={f.title}
-                  variants={fadeInUp}
-                  whileHover={{ y: -4 }}
-                  className="group flex gap-4 p-6 rounded-xl border border-white/[0.06] border-l-2 border-l-transparent hover:border-white/[0.12] hover:border-l-[var(--color-accent)] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {pillars.map((pillar, i) => {
+            const Icon = pillar.icon;
+            return (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative overflow-hidden rounded-3xl p-8 md:p-10"
+                style={{
+                  background: 'var(--color-bg)',
+                  border: '1px solid var(--color-border)',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+                }}
+              >
+                {/* Large number watermark */}
+                <span
+                  className="absolute top-6 right-8 text-7xl md:text-8xl font-bold pointer-events-none select-none"
+                  style={{ color: `${pillar.color}08` }}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-[var(--color-primary)]/20">
-                    <Icon className="w-5 h-5 text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors duration-300" strokeWidth={1.5} />
+                  {pillar.number}
+                </span>
+
+                {/* Hover glow */}
+                <div
+                  className="absolute -top-20 -right-20 h-44 w-44 rounded-full transition-opacity duration-700 group-hover:opacity-100 opacity-0 pointer-events-none"
+                  style={{ background: `radial-gradient(circle, ${pillar.color}33 0%, transparent 70%)`, filter: 'blur(30px)' }}
+                />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-5">
+                    <span
+                      className="flex h-12 w-12 items-center justify-center rounded-xl shrink-0"
+                      style={{ background: `${pillar.color}12`, color: pillar.color, border: `1px solid ${pillar.color}25` }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-semibold" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)', letterSpacing: 0 }}>
+                      {pillar.title}
+                    </h3>
                   </div>
-                  <div>
-                    <h4 className="text-white font-semibold text-sm mb-1">{f.title}</h4>
-                    <p className="text-[var(--color-text-tertiary)] text-xs leading-relaxed">{f.description}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                  <p className="text-sm md:text-base leading-relaxed pl-16" style={{ color: 'var(--color-text-secondary)' }}>
+                    {pillar.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </Container>
     </section>
