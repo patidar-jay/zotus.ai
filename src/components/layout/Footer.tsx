@@ -8,8 +8,10 @@ import { siteConfig } from '../../config/site';
 const footerLinks = {
   'Quick Links': [
     { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/#about' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Platform', href: '/platform' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Team', href: '/team' },
+    { label: 'Contact', href: '/contact' },
   ],
   'Services': [
     { label: 'Artificial Intelligence', href: '/#services' },

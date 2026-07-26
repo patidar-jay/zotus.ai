@@ -9,22 +9,24 @@ import { siteConfig } from '../../config/site';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Solutions', href: '/#services' },
-  { label: 'About', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Platform', href: '/platform' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Team', href: '/team' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const mobileGroups = [
   {
     links: [
       { label: 'Home', href: '/' },
-      { label: 'Solutions', href: '/#services' },
-      { label: 'About', href: '/#about' },
+      { label: 'Platform', href: '/platform' },
+      { label: 'Case Studies', href: '/case-studies' },
     ]
   },
   {
     links: [
-      { label: 'Contact', href: '/#contact' },
+      { label: 'Team', href: '/team' },
+      { label: 'Contact', href: '/contact' },
     ]
   }
 ];
