@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Zotus AI',
   legalName: 'Zotus AI Private Limited',
-  tagline: 'Trusted Infrastructure for Intelligent Systems',
+  tagline: 'Innovate at the speed of Light',
   description:
     'The data engine behind coding, robotics, agentic workflows, model evaluation, and post-training programs for frontier AI teams.',
   url: 'https://zotus.ai',
