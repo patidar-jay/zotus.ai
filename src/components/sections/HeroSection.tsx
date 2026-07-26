@@ -47,18 +47,18 @@ export default function HeroSection() {
           style={{ fontFamily: 'var(--font-heading)', maxWidth: 1100 }}
         >
           <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Exam Monitoring
+            Exam AI Monitoring
           </span>
-          <span> Solutions.</span>
+          <span> Solution.</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
           className="mx-auto mt-8 max-w-2xl text-center text-lg md:text-xl leading-relaxed"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          The intelligent monitoring platform behind exams,
+          The intelligent monitoring platform behind exam proctoring,
           <br className="hidden md:block" />
-          warehouses, and enterprise security programs.
+          warehouse security, and enterprise surveillance programs.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}
@@ -81,7 +81,7 @@ export default function HeroSection() {
           >Talk to an expert <ArrowRight className="h-4 w-4" /></a>
           <a className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors backdrop-blur-[10px]"
             style={{ background: 'rgba(15,23,42,0.04)', border: '1px solid rgba(15,23,42,0.12)', color: 'var(--color-text)' }} href="/platform"
-          >Explore our platform</a>
+          >Explore our services</a>
         </motion.div>
 
         <motion.div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1"

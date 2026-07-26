@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: 'Zotus AI',
   legalName: 'Zotus AI Private Limited',
-  tagline: 'Smart AI Solutions That Solve Real Problems',
+  tagline: 'Exam AI Monitoring Solution',
   description:
-    'Zotus AI builds smart AI-powered solutions — from intelligent camera monitoring to custom automation — helping businesses solve real-world problems with cutting-edge technology.',
+    'Zotus AI — Exam AI Monitoring Solution. The intelligent monitoring platform behind exam proctoring, warehouse security, and enterprise surveillance programs.',
   url: 'https://zotus.ai',
   email: 'zotusai@gmail.com',
   address: {
