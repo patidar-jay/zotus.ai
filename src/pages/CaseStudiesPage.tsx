@@ -53,7 +53,7 @@ export default function CaseStudiesPage() {
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
               className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-xl mx-auto"
-            >How frontier AI teams use our human infrastructure to ship better models, faster.</motion.p>
+            >How Zotus AI teams use our human infrastructure to ship better models, faster.</motion.p>
           </div>
         </Container>
       </section>

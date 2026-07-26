@@ -72,7 +72,7 @@ export default function HeroSection() {
         >
           The data engine behind coding, robotics, agentic workflows,
           <br className="hidden md:block" />
-          world models, evaluation, and post-training programs for frontier AI teams.
+          world models, evaluation, and post-training programs for Zotus AI teams.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}

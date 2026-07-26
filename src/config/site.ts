@@ -3,7 +3,7 @@ export const siteConfig = {
   legalName: 'Zotus AI Private Limited',
   tagline: 'Innovate at the speed of Light',
   description:
-    'The data engine behind coding, robotics, agentic workflows, model evaluation, and post-training programs for frontier AI teams.',
+    'The data engine behind coding, robotics, agentic workflows, model evaluation, and post-training programs for Zotus AI teams.',
   url: 'https://zotus.ai',
   email: 'contact@zotusai.com',
   address: {
