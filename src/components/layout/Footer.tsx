@@ -10,7 +10,6 @@ const footerLinks = {
     { label: 'Home', href: '/' },
     { label: 'Platform', href: '/platform' },
     { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Team', href: '/team' },
     { label: 'Contact', href: '/contact' },
   ],
   'Services': [
