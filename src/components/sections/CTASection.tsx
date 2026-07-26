@@ -6,7 +6,7 @@ export default function CTASection() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(135deg, #6C3CF4 0%, #7C3AED 25%, #A855F7 50%, #6C3CF4 100%)',
+        background: 'linear-gradient(135deg, #6D28D9 0%, #7C3AED 25%, #A855F7 50%, #6D28D9 100%)',
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',

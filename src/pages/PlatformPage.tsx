@@ -4,19 +4,19 @@ import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 
 const steps = [
-  { step: '01', icon: Database, title: 'Ingest', color: '#6C3CF4' },
+  { step: '01', icon: Database, title: 'Ingest', color: '#6D28D9' },
   { step: '02', icon: Layers, title: 'Annotate', color: '#A855F7' },
-  { step: '03', icon: ShieldCheck, title: 'QC', color: '#10B981' },
-  { step: '04', icon: GitBranch, title: 'Deliver', color: '#F59E0B' },
+  { step: '03', icon: ShieldCheck, title: 'QC', color: '#8B5CF6' },
+  { step: '04', icon: GitBranch, title: 'Deliver', color: '#7C3AED' },
 ];
 
 const capabilities = [
-  { icon: Cpu, title: 'Custom Pipelines', color: '#6C3CF4' },
-  { icon: ShieldCheck, title: 'Quality Gates', color: '#10B981' },
-  { icon: Users, title: 'Expert Routing', color: '#A78BFA' },
-  { icon: BarChart3, title: 'Live Analytics', color: '#F59E0B' },
-  { icon: Layers, title: 'Multi-format', color: '#EC4899' },
-  { icon: GitBranch, title: 'API Delivery', color: '#14B8A6' },
+  { icon: Cpu, title: 'Custom Pipelines', color: '#6D28D9' },
+  { icon: ShieldCheck, title: 'Quality Gates', color: '#8B5CF6' },
+  { icon: Users, title: 'Expert Routing', color: '#A855F7' },
+  { icon: BarChart3, title: 'Live Analytics', color: '#7C3AED' },
+  { icon: Layers, title: 'Multi-format', color: '#5B21B6' },
+  { icon: GitBranch, title: 'API Delivery', color: '#4C1D95' },
 ];
 
 const stats = [
@@ -51,7 +51,7 @@ export default function PlatformPage() {
               className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-heading)' }}
             >
               The{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <span style={{ background: 'linear-gradient(120deg, #A855F7 0%, #6D28D9 40%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Data Factory
               </span>
               {' '}for AI.
@@ -61,7 +61,7 @@ export default function PlatformPage() {
             >From raw data to production-ready training sets — one platform for annotation, quality, and delivery.</motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="flex flex-wrap justify-center gap-4">
               <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-                style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }}
+                style={{ background: 'linear-gradient(120deg, #6D28D9 0%, #A855F7 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }}
               >Request a Demo <ArrowRight className="w-4 h-4" /></a>
               <a href="/case-studies" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
                 style={{ background: 'rgba(15,23,42,0.04)', border: '1px solid rgba(15,23,42,0.12)', color: 'var(--color-text)' }}
@@ -78,7 +78,7 @@ export default function PlatformPage() {
             {[...chips, ...chips].map((c, i) => (
               <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap"
                 style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.10)', color: 'var(--color-text-secondary)' }}
-              ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
+              ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A855F7', '#8B5CF6', '#7C3AED'][i % 3] }} />{c}</span>
             ))}
           </div>
         </div>
@@ -90,10 +90,10 @@ export default function PlatformPage() {
       <section className="py-24 md:py-32 relative overflow-hidden">
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14 md:mb-20">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>How It Works</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6D28D9' }}>How It Works</span>
             <h2 className="text-4xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
               Four steps.{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>One pipeline.</span>
+              <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>One pipeline.</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -121,10 +121,10 @@ export default function PlatformPage() {
       <section className="py-20 md:py-28 relative" style={{ background: 'var(--color-bg-subtle)' }}>
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>Capabilities</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6D28D9' }}>Capabilities</span>
             <h2 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
               Everything you{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>need.</span>
+              <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>need.</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">

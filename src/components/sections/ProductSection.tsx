@@ -123,12 +123,12 @@ function ProfileCardsSvg({ color }: { color: string }) {
 }
 
 const products = [
-  { icon: Bot, title: 'Physical AI', subtitle: 'Motion capture · Humanoid control · Sim-to-real', desc: 'Lab-grade human motion capture — not estimated from video — for training humanoid policies, imitation learning, and embodied agents.', color: '#A78BFA', href: '/platform', Illustration: HumanoidSvg },
-  { icon: Terminal, title: 'Agentic Evaluation', subtitle: 'Agent benchmarks · Tool-use traces · Grading', desc: 'Multi-step, tool-using agent tasks with ground-truth traces and automated grading pipelines built for rigorous evaluation at scale.', color: '#10B981', href: '/platform', Illustration: TerminalSvg },
-  { icon: Video, title: 'Video & Image', subtitle: 'Annotation · Segmentation · Multimodal', desc: 'Pixel-perfect video and image annotation — instance segmentation, semantic masks, 3D bounding boxes, and temporal tracking for vision models.', color: '#6C3CF4', href: '/platform', Illustration: BarChartSvg },
-  { icon: FileText, title: 'Text QC & RLHF', subtitle: 'Preference · Reward modeling · SFT', desc: 'Human preference data, reward model training sets, and supervised fine-tuning datasets curated by domain experts for alignment.', color: '#F59E0B', href: '/platform', Illustration: WordCloudSvg },
-  { icon: ShieldCheck, title: 'AI-Native QC', subtitle: 'Quality · Consensus · Active learning', desc: 'Model-in-the-loop quality assurance with consensus scoring, inter-annotator agreement tracking, and intelligent re-routing of ambiguous samples.', color: '#EC4899', href: '/platform', Illustration: QualityMeterSvg },
-  { icon: Users, title: 'Expert Network', subtitle: 'Domain experts · Managed teams · Scale', desc: 'On-demand access to vetted domain experts — software engineers, PhDs, linguists, and subject-matter specialists — managed end-to-end.', color: '#14B8A6', href: '/platform', Illustration: ProfileCardsSvg },
+  { icon: Bot, title: 'Physical AI', subtitle: 'Motion capture · Humanoid control · Sim-to-real', desc: 'Lab-grade human motion capture — not estimated from video — for training humanoid policies, imitation learning, and embodied agents.', color: '#A855F7', href: '/platform', Illustration: HumanoidSvg },
+  { icon: Terminal, title: 'Agentic Evaluation', subtitle: 'Agent benchmarks · Tool-use traces · Grading', desc: 'Multi-step, tool-using agent tasks with ground-truth traces and automated grading pipelines built for rigorous evaluation at scale.', color: '#8B5CF6', href: '/platform', Illustration: TerminalSvg },
+  { icon: Video, title: 'Video & Image', subtitle: 'Annotation · Segmentation · Multimodal', desc: 'Pixel-perfect video and image annotation — instance segmentation, semantic masks, 3D bounding boxes, and temporal tracking for vision models.', color: '#6D28D9', href: '/platform', Illustration: BarChartSvg },
+  { icon: FileText, title: 'Text QC & RLHF', subtitle: 'Preference · Reward modeling · SFT', desc: 'Human preference data, reward model training sets, and supervised fine-tuning datasets curated by domain experts for alignment.', color: '#7C3AED', href: '/platform', Illustration: WordCloudSvg },
+  { icon: ShieldCheck, title: 'AI-Native QC', subtitle: 'Quality · Consensus · Active learning', desc: 'Model-in-the-loop quality assurance with consensus scoring, inter-annotator agreement tracking, and intelligent re-routing of ambiguous samples.', color: '#5B21B6', href: '/platform', Illustration: QualityMeterSvg },
+  { icon: Users, title: 'Expert Network', subtitle: 'Domain experts · Managed teams · Scale', desc: 'On-demand access to vetted domain experts — software engineers, PhDs, linguists, and subject-matter specialists — managed end-to-end.', color: '#4C1D95', href: '/platform', Illustration: ProfileCardsSvg },
 ];
 
 export default function ProductSection() {
@@ -148,7 +148,7 @@ export default function ProductSection() {
             {[...chips1, ...chips1].map((c, i) => (
               <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap backdrop-blur-lg"
                 style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.08)', color: 'var(--color-text-secondary)' }}
-              ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
+              ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A855F7', '#8B5CF6', '#7C3AED'][i % 3] }} />{c}</span>
             ))}
           </div>
           <div className="relative mt-4">
@@ -156,7 +156,7 @@ export default function ProductSection() {
               {[...chips2, ...chips2].map((c, i) => (
                 <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap backdrop-blur-lg"
                   style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.08)', color: 'var(--color-text-secondary)' }}
-                ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
+                ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A855F7', '#8B5CF6', '#7C3AED'][i % 3] }} />{c}</span>
               ))}
             </div>
           </div>
@@ -177,10 +177,10 @@ export default function ProductSection() {
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="text-center mb-14 md:mb-20">
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>What we build</span>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6D28D9' }}>What we build</span>
               <h2 className="text-4xl md:text-6xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
                 Data programs,{' '}
-                <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>purpose-built</span>
+                <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>purpose-built</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
                 Six capabilities. One human infrastructure layer. From embodied AI to agent evals, we ship the gold-standard dataset your team can&apos;t assemble in-house.

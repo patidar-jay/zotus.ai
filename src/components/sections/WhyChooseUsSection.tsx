@@ -3,10 +3,10 @@ import { ShieldCheck, Zap, Users, Rocket, ArrowRight, Award, Globe, CheckCircle2
 import { Container } from '../ui';
 
 const pillars = [
-  { number: '01', icon: ShieldCheck, title: 'Quality at Scale', desc: 'Every data point passes through multi-stage quality gates — consensus scoring, inter-annotator agreement checks, and model-in-the-loop verification before delivery.', color: '#6C3CF4' },
-  { number: '02', icon: Zap, title: 'Speed to Production', desc: 'From kickoff to first delivery in under two weeks. Pre-built annotation pipelines, managed expert teams, and rapid iteration cycles that match your model training cadence.', color: '#10B981' },
-  { number: '03', icon: Users, title: 'Expert-Led Workforce', desc: 'Vetted domain specialists — software engineers, PhDs, linguists, and researchers — not crowdsourced generalists. Every annotator is background-checked and NDA-bound.', color: '#F59E0B' },
-  { number: '04', icon: Rocket, title: 'Enterprise Security', desc: 'SOC 2 Type II compliant infrastructure. Data residency controls, end-to-end encryption, role-based access, and complete audit trails for every annotation session.', color: '#EC4899' },
+  { number: '01', icon: ShieldCheck, title: 'Quality at Scale', desc: 'Every data point passes through multi-stage quality gates — consensus scoring, inter-annotator agreement checks, and model-in-the-loop verification before delivery.', color: '#6D28D9' },
+  { number: '02', icon: Zap, title: 'Speed to Production', desc: 'From kickoff to first delivery in under two weeks. Pre-built annotation pipelines, managed expert teams, and rapid iteration cycles that match your model training cadence.', color: '#8B5CF6' },
+  { number: '03', icon: Users, title: 'Expert-Led Workforce', desc: 'Vetted domain specialists — software engineers, PhDs, linguists, and researchers — not crowdsourced generalists. Every annotator is background-checked and NDA-bound.', color: '#7C3AED' },
+  { number: '04', icon: Rocket, title: 'Enterprise Security', desc: 'SOC 2 Type II compliant infrastructure. Data residency controls, end-to-end encryption, role-based access, and complete audit trails for every annotation session.', color: '#5B21B6' },
 ];
 
 const stats = [
@@ -35,10 +35,10 @@ export default function WhyChooseUsSection() {
         }} />
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14 md:mb-20">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>Why choose us</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6D28D9' }}>Why choose us</span>
             <h2 className="text-4xl md:text-6xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
               Human infrastructure{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>your team can trust.</span>
+              <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>your team can trust.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
               Four pillars. One commitment. We handle the data complexity so your team can focus on building frontier models.
@@ -82,11 +82,11 @@ export default function WhyChooseUsSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-6 border"
-                style={{ background: 'rgba(109,40,217,0.06)', borderColor: 'rgba(109,40,217,0.12)', color: '#6C3CF4' }}
+                style={{ background: 'rgba(109,40,217,0.06)', borderColor: 'rgba(109,40,217,0.12)', color: '#6D28D9' }}
               >Our Platform</span>
               <h2 className="text-3xl md:text-5xl font-semibold leading-tight mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
                 The data factory{' '}
-                <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>built for AI teams.</span>
+                <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>built for AI teams.</span>
               </h2>
               <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: 'var(--color-text-secondary)' }}>
                 Purpose-built infrastructure for teams that need high-quality training data at scale — without building annotation tooling themselves.
@@ -94,13 +94,13 @@ export default function WhyChooseUsSection() {
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {platformFeatures.map((f) => (
                   <div key={f} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#10B981' }} />
+                    <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#8B5CF6' }} />
                     <span className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>{f}</span>
                   </div>
                 ))}
               </div>
               <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-                style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.5)' }}
+                style={{ background: 'linear-gradient(120deg, #6D28D9 0%, #A855F7 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.5)' }}
               >Get started <ArrowRight className="w-4 h-4" /></a>
             </motion.div>
 
@@ -118,9 +118,9 @@ export default function WhyChooseUsSection() {
                   </div>
                   <div className="p-4 space-y-3">
                     {['$ pipeline run --project vision-v3', '→ Loading 12,847 samples...', '→ Assigning to 24 annotators...', '→ QC gate: consensus ≥ 0.92', '✓ Batch 1/8 complete (1,606 samples)', '✓ Quality score: 99.1%'].map((line, i) => (
-                      <div key={i} className="text-[11px] font-mono" style={{ color: i === 0 ? 'rgba(148,163,184,0.7)' : i >= 4 ? '#10B981' : 'rgba(167,139,250,0.6)' }}>
+                      <div key={i} className="text-[11px] font-mono" style={{ color: i === 0 ? 'rgba(148,163,184,0.7)' : i >= 4 ? '#8B5CF6' : 'rgba(167,139,250,0.6)' }}>
                         {line}
-                        {i === 5 && <span className="inline-block w-1.5 h-3 ml-1 align-middle" style={{ background: '#10B981', animation: 'pulse 1s ease infinite' }} />}
+                        {i === 5 && <span className="inline-block w-1.5 h-3 ml-1 align-middle" style={{ background: '#8B5CF6', animation: 'pulse 1s ease infinite' }} />}
                       </div>
                     ))}
                   </div>
@@ -135,10 +135,10 @@ export default function WhyChooseUsSection() {
       <section className="py-20 md:py-28 relative">
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>By the numbers</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6D28D9' }}>By the numbers</span>
             <h2 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
               Scale that{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>speaks.</span>
+              <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>speaks.</span>
             </h2>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">

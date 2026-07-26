@@ -30,9 +30,9 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="mesh-a absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.12] blur-[80px]" style={{ background: '#6C3CF4' }} />
-        <div className="mesh-b absolute top-[30%] right-[-15%] w-[50vw] h-[50vw] rounded-full opacity-[0.14] blur-[100px]" style={{ background: '#A78BFA' }} />
-        <div className="mesh-c absolute bottom-[-30%] left-[25%] w-[55vw] h-[55vw] rounded-full opacity-[0.08] blur-[90px]" style={{ background: '#10B981' }} />
+        <div className="mesh-a absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.12] blur-[80px]" style={{ background: '#6D28D9' }} />
+        <div className="mesh-b absolute top-[30%] right-[-15%] w-[50vw] h-[50vw] rounded-full opacity-[0.14] blur-[100px]" style={{ background: '#A855F7' }} />
+        <div className="mesh-c absolute bottom-[-30%] left-[25%] w-[55vw] h-[55vw] rounded-full opacity-[0.08] blur-[90px]" style={{ background: '#8B5CF6' }} />
       </div>
 
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
@@ -50,11 +50,11 @@ export default function HeroSection() {
           style={{ background: 'rgba(109,40,217,0.06)', border: '1px solid rgba(109,40,217,0.12)' }}
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10B981] opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#10B981]" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8B5CF6] opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8B5CF6]" />
           </span>
           <span style={{ color: 'var(--color-text-secondary)' }}>Trusted by frontier AI labs</span>
-          <Sparkles className="h-3 w-3" style={{ color: '#A78BFA' }} />
+          <Sparkles className="h-3 w-3" style={{ color: '#A855F7' }} />
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
@@ -62,11 +62,11 @@ export default function HeroSection() {
           style={{ fontFamily: 'var(--font-heading)', maxWidth: 1100 }}
         >
           <span>Trusted </span>
-          <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <span style={{ background: 'linear-gradient(120deg, #A855F7 0%, #6D28D9 40%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             Human Infrastructure
           </span>
           <span> for </span>
-          <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <span style={{ background: 'linear-gradient(120deg, #A855F7 0%, #6D28D9 40%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             Agentic AI.
           </span>
         </motion.h1>
@@ -96,7 +96,7 @@ export default function HeroSection() {
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <a className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-            style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }} href="/contact"
+            style={{ background: 'linear-gradient(120deg, #6D28D9 0%, #A855F7 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }} href="/contact"
           >Talk to an expert <ArrowRight className="h-4 w-4" /></a>
           <a className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors backdrop-blur-[10px]"
             style={{ background: 'rgba(15,23,42,0.04)', border: '1px solid rgba(15,23,42,0.12)', color: 'var(--color-text)' }} href="/platform"

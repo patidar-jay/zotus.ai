@@ -4,22 +4,22 @@ import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 
 const caseStudies = [
-  { icon: Bot, title: 'Physical AI for Robotics', industry: 'Robotics · Embodied AI', color: '#A78BFA',
+  { icon: Bot, title: 'Physical AI for Robotics', industry: 'Robotics · Embodied AI', color: '#A855F7',
     result: '50K+ motion capture sessions delivered', challenge: 'A frontier robotics lab needed high-fidelity human motion data to train humanoid locomotion policies. Existing video-based pose estimation introduced unacceptable noise for sim-to-real transfer.',
     solution: 'We deployed lab-grade marker-based motion capture with 24 expert operators across three studios, delivering sub-millimeter joint trajectories with full metadata and retargeting scripts.' },
-  { icon: Terminal, title: 'Agentic Evaluation Pipeline', industry: 'Foundation Models · Evals', color: '#10B981',
+  { icon: Terminal, title: 'Agentic Evaluation Pipeline', industry: 'Foundation Models · Evals', color: '#8B5CF6',
     result: '12,000+ multi-step agent traces graded', challenge: 'An AI lab building tool-using agents needed ground-truth evaluation data — multi-step terminal tasks with verifiable outcomes — that existing benchmarks couldn\'t cover.',
     solution: 'We assembled a team of senior software engineers to create, execute, and grade complex agent tasks spanning file systems, APIs, databases, and web interactions.' },
-  { icon: Video, title: 'Autonomous Driving Annotation', industry: 'Self-Driving · Computer Vision', color: '#6C3CF4',
+  { icon: Video, title: 'Autonomous Driving Annotation', industry: 'Self-Driving · Computer Vision', color: '#6D28D9',
     result: '2M+ frames with 3D bounding boxes', challenge: 'A self-driving company needed pixel-perfect 3D annotations across lidar and camera streams with sub-frame temporal consistency for their perception stack.',
     solution: 'Our annotation team processed multi-sensor data streams with custom tooling, achieving 99.6% consensus accuracy across instance segmentation, lane markings, and 3D cuboids.' },
-  { icon: FileText, title: 'RLHF for Code Generation', industry: 'LLMs · Code · Alignment', color: '#F59E0B',
+  { icon: FileText, title: 'RLHF for Code Generation', industry: 'LLMs · Code · Alignment', color: '#7C3AED',
     result: '100K+ preference pairs from senior engineers', challenge: 'A code-generation model needed high-quality human preference data from experienced software engineers — not crowdsourced workers — to improve alignment on complex coding tasks.',
     solution: 'We recruited and managed a team of 200+ senior developers across 12 programming languages, delivering preference rankings, explanations, and reward signals for SFT and RLHF pipelines.' },
-  { icon: ShieldCheck, title: 'Safety & Red-Teaming', industry: 'AI Safety · Governance', color: '#EC4899',
+  { icon: ShieldCheck, title: 'Safety & Red-Teaming', industry: 'AI Safety · Governance', color: '#5B21B6',
     result: '25K+ adversarial prompts tested', challenge: 'A foundation model company needed rigorous red-team evaluation before a major release — adversarial testing across safety categories with expert-written attack vectors.',
     solution: 'Our safety research team designed and executed multi-category red-team evaluations, producing structured vulnerability reports and severity-scored datasets for model hardening.' },
-  { icon: Users, title: 'Multilingual Data Program', industry: 'NLP · Localization · Scale', color: '#14B8A6',
+  { icon: Users, title: 'Multilingual Data Program', industry: 'NLP · Localization · Scale', color: '#4C1D95',
     result: '40+ languages covered in 8 weeks', challenge: 'A global AI company needed high-quality instruction-following data across 40+ languages, with cultural nuance and domain expertise in each locale.',
     solution: 'We activated our global expert network — native-speaker linguists and domain specialists — to produce culturally-adapted, quality-gated datasets with consistent annotation guidelines.' },
 ];
@@ -39,14 +39,14 @@ export default function CaseStudiesPage() {
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 border"
               style={{ background: 'rgba(109,40,217,0.06)', borderColor: 'rgba(109,40,217,0.12)', color: 'var(--color-primary)' }}
             >
-              <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10B981] opacity-60" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#10B981]" /></span>
+              <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8B5CF6] opacity-60" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#8B5CF6]" /></span>
               Case Studies
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-heading)' }}
             >
               Real{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <span style={{ background: 'linear-gradient(120deg, #A855F7 0%, #6D28D9 40%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Results
               </span>
               {' '}at Scale.
@@ -102,7 +102,7 @@ export default function CaseStudiesPage() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-16">
             <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-              style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }}
+              style={{ background: 'linear-gradient(120deg, #6D28D9 0%, #A855F7 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }}
             >Start a conversation <ArrowRight className="w-4 h-4" /></a>
           </motion.div>
         </Container>
