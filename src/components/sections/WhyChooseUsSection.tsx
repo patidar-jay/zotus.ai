@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, Users, Rocket, ArrowRight, Award, Globe, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Zap, Users, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Container } from '../ui';
 
 const pillars = [
@@ -9,12 +9,6 @@ const pillars = [
   { number: '04', icon: Rocket, title: 'Enterprise Security', desc: 'SOC 2 Type II compliant infrastructure. Data residency controls, end-to-end encryption, role-based access, and complete audit trails for every annotation session.', color: '#5B21B6' },
 ];
 
-const stats = [
-  { value: '10M+', label: 'Annotations Delivered', icon: Award },
-  { value: '99.4%', label: 'Quality Score', icon: ShieldCheck },
-  { value: '2,500+', label: 'Domain Experts', icon: Users },
-  { value: '40+', label: 'Enterprise Clients', icon: Globe },
-];
 
 const platformFeatures = [
   'Custom annotation interfaces',

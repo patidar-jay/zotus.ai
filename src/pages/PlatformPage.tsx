@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Database, Cpu, ShieldCheck, BarChart3, Layers, GitBranch, Users, Globe, Award, ChevronRight } from 'lucide-react';
+import { ArrowRight, Database, Cpu, ShieldCheck, BarChart3, Layers, GitBranch, Users, ChevronRight } from 'lucide-react';
 import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 
@@ -19,12 +19,6 @@ const capabilities = [
   { icon: GitBranch, title: 'API Delivery', color: '#4C1D95' },
 ];
 
-const stats = [
-  { value: '10M+', label: 'Annotations', icon: Award },
-  { value: '99.4%', label: 'Quality Score', icon: ShieldCheck },
-  { value: '2,500+', label: 'Domain Experts', icon: Users },
-  { value: '40+', label: 'Clients', icon: Globe },
-];
 
 const chips = ['Data Labeling', 'RLHF', 'Segmentation', 'Agent Evals', 'Reward Modeling', 'Code Review', 'QC', 'Fine-tuning'];
 
