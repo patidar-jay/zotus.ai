@@ -1,32 +1,24 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Target, Warehouse, Building, CheckCircle2, TrendingUp, AlertTriangle, Shield } from 'lucide-react';
+import { GraduationCap, Target, Warehouse, Building, TrendingUp } from 'lucide-react';
 import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 
 const caseStudies = [
   {
-    id: 'govt-exam', icon: GraduationCap, color: '#6C3CF4', badge: 'Government Exams', title: 'State-Level Exam Monitoring', subtitle: 'UPPSC · BPSC · MPPSC',
-    challenge: 'Large-scale exam integrity across hundreds of centers.', solution: 'AI monitoring with real-time verification and instant alerts.',
+    icon: GraduationCap, color: '#6C3CF4', badge: 'Government Exams', title: 'State-Level Exam Monitoring', subtitle: 'UPPSC · BPSC · MPPSC',
     results: [{ metric: '98.7%', label: 'Accuracy' }, { metric: '<150ms', label: 'Alert time' }, { metric: '40%', label: 'Fraud reduction' }, { metric: '500+', label: 'Centers' }],
-    highlights: ['Real-time candidate verification', 'Automated incident detection', 'Centralized multi-center oversight'],
   },
   {
-    id: 'entrance', icon: Target, color: '#10B981', badge: 'Entrance Exams', title: 'National Entrance Exam Solutions', subtitle: 'NEET · JEE · GATE',
-    challenge: 'Ensuring integrity at unprecedented scale for millions of students.', solution: 'Hybrid monitoring combining on-site and remote capabilities.',
+    icon: Target, color: '#10B981', badge: 'Entrance Exams', title: 'National Entrance Exam Solutions', subtitle: 'NEET · JEE · GATE',
     results: [{ metric: '99.1%', label: 'Verification' }, { metric: '2M+', label: 'Sessions' }, { metric: '60%', label: 'Fewer interventions' }, { metric: '24/7', label: 'Coverage' }],
-    highlights: ['Hybrid online + offline monitoring', 'Scalable to millions of sessions', 'Behavioral pattern analysis'],
   },
   {
-    id: 'warehouse', icon: Warehouse, color: '#F59E0B', badge: 'Warehouses', title: 'Warehouse Surveillance', subtitle: 'Inventory · Security',
-    challenge: 'Preventing theft and unauthorized access in large facilities.', solution: 'Intelligent monitoring with zone-based alerts and motion detection.',
+    icon: Warehouse, color: '#F59E0B', badge: 'Warehouses', title: 'Warehouse Surveillance', subtitle: 'Inventory · Security',
     results: [{ metric: '75%', label: 'Theft reduction' }, { metric: '<3s', label: 'Alert time' }, { metric: '30+', label: 'Warehouses' }, { metric: '95%', label: 'Uptime' }],
-    highlights: ['Zone-based access monitoring', 'After-hours intrusion detection', 'Movement heat-mapping'],
   },
   {
-    id: 'campus', icon: Building, color: '#EC4899', badge: 'Institutions', title: 'Campus Security', subtitle: 'Universities · Coaching',
-    challenge: 'Managing security across multiple buildings and entry points.', solution: 'Campus-wide monitoring with centralized security dashboards.',
+    icon: Building, color: '#EC4899', badge: 'Institutions', title: 'Campus Security', subtitle: 'Universities · Coaching',
     results: [{ metric: '90%', label: 'Faster response' }, { metric: '12', label: 'Sites' }, { metric: '50K+', label: 'Daily checks' }, { metric: '99.5%', label: 'Uptime' }],
-    highlights: ['Entry management system', 'Multi-building dashboard', 'Real-time alert system'],
   },
 ];
 
@@ -48,54 +40,37 @@ export default function CaseStudiesPage() {
               Real Deployments
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-heading)' }}
+              className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05]" style={{ fontFamily: 'var(--font-heading)' }}
             >
               Proven{' '}
               <span style={{ background: 'linear-gradient(120deg, #10B981 0%, #6C3CF4 50%, #F59E0B 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Results.</span>
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
-              className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-xl mx-auto"
-            >Real deployments across exams, warehouses, and institutions.</motion.p>
           </div>
         </Container>
       </section>
 
-      {/* Case Studies */}
+      {/* Case Studies — name + metrics only */}
       <section className="py-16 md:py-24">
         <Container>
-          <div className="space-y-16">
+          <div className="space-y-8">
             {caseStudies.map((cs, i) => {
               const Icon = cs.icon;
-              const isEven = i % 2 === 0;
               return (
-                <motion.div key={cs.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.6 }}
+                <motion.div key={cs.badge} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.6 }}
                   className="relative rounded-3xl overflow-hidden" style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', boxShadow: '0 4px 24px rgba(0,0,0,0.04)' }}
                 >
                   <div className="h-1" style={{ background: `linear-gradient(90deg, ${cs.color}, ${cs.color}88)` }} />
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                    <div className={`p-8 md:p-10 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                      <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-5" style={{ background: `${cs.color}12`, color: cs.color, border: `1px solid ${cs.color}25` }}>
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
+                    <div className={`p-8 md:p-10 lg:col-span-2 flex flex-col justify-center ${i % 2 !== 0 ? 'lg:order-2' : ''}`}>
+                      <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-5 w-fit" style={{ background: `${cs.color}12`, color: cs.color, border: `1px solid ${cs.color}25` }}>
                         <Icon className="w-3.5 h-3.5" />{cs.badge}
                       </span>
-                      <h2 className="text-2xl md:text-3xl font-semibold mb-1 leading-tight" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)' }}>{cs.title}</h2>
-                      <p className="text-sm font-medium mb-5" style={{ color: cs.color }}>{cs.subtitle}</p>
-                      <div className="mb-4">
-                        <div className="flex items-center gap-2 mb-1"><AlertTriangle className="w-3.5 h-3.5 text-[#F59E0B]" /><span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-secondary)]">Challenge</span></div>
-                        <p className="text-sm text-[var(--color-text-secondary)]">{cs.challenge}</p>
-                      </div>
-                      <div className="mb-5">
-                        <div className="flex items-center gap-2 mb-1"><Shield className="w-3.5 h-3.5 text-[var(--color-primary)]" /><span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-secondary)]">Solution</span></div>
-                        <p className="text-sm text-[var(--color-text-secondary)]">{cs.solution}</p>
-                      </div>
-                      <div className="space-y-1.5">
-                        {cs.highlights.map((h) => (
-                          <div key={h} className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: cs.color }} /><span className="text-sm text-[var(--color-text-secondary)]">{h}</span></div>
-                        ))}
-                      </div>
+                      <h2 className="text-2xl md:text-3xl font-semibold leading-tight" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)' }}>{cs.title}</h2>
+                      <p className="text-sm font-medium mt-2" style={{ color: cs.color }}>{cs.subtitle}</p>
                     </div>
-                    <div className={`p-8 md:p-10 flex flex-col justify-center ${isEven ? 'lg:order-2' : 'lg:order-1'}`} style={{ background: 'var(--color-bg-subtle)' }}>
+                    <div className={`p-8 md:p-10 lg:col-span-3 flex flex-col justify-center ${i % 2 !== 0 ? 'lg:order-1' : ''}`} style={{ background: 'var(--color-bg-subtle)' }}>
                       <div className="flex items-center gap-2 mb-6"><TrendingUp className="w-5 h-5" style={{ color: cs.color }} /><span className="text-sm font-bold uppercase tracking-widest" style={{ color: cs.color }}>Results</span></div>
-                      <div className="grid grid-cols-2 gap-5">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {cs.results.map((r) => (
                           <div key={r.label}>
                             <div className="text-3xl md:text-4xl font-bold mb-1" style={{ fontFamily: 'var(--font-heading)', background: `linear-gradient(135deg, ${cs.color}, ${cs.color}aa)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{r.metric}</div>

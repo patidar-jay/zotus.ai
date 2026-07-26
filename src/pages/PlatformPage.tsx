@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Camera, Cpu, Bell, BarChart3, Shield, Zap, Clock, Activity, ChevronRight } from 'lucide-react';
+import { ArrowRight, Camera, Cpu, Bell, BarChart3, Shield, Zap, Clock, Activity, ChevronRight, Monitor, Users, Lock, FileText } from 'lucide-react';
 import { Container } from '../components/ui';
 import { CTASection } from '../components/sections';
 
 const steps = [
-  { step: '01', icon: Camera, title: 'Capture', description: 'HD video feeds from monitored zones.', color: '#6C3CF4' },
-  { step: '02', icon: Cpu, title: 'Process', description: 'AI analyzes every frame in real-time.', color: '#A855F7' },
-  { step: '03', icon: Bell, title: 'Alert', description: 'Instant notifications on detection.', color: '#10B981' },
-  { step: '04', icon: BarChart3, title: 'Report', description: 'Dashboard with analytics and audit logs.', color: '#F59E0B' },
+  { step: '01', icon: Camera, title: 'Capture', color: '#6C3CF4' },
+  { step: '02', icon: Cpu, title: 'Process', color: '#A855F7' },
+  { step: '03', icon: Bell, title: 'Alert', color: '#10B981' },
+  { step: '04', icon: BarChart3, title: 'Report', color: '#F59E0B' },
 ];
 
 const stats = [
@@ -15,6 +15,15 @@ const stats = [
   { value: '<200ms', label: 'Response', icon: Zap },
   { value: '50K+', label: 'Hours Monitored', icon: Clock },
   { value: '15+', label: 'Deployments', icon: Activity },
+];
+
+const features = [
+  { icon: Monitor, title: 'Live Monitoring', color: '#6C3CF4' },
+  { icon: Bell, title: 'Smart Alerts', color: '#10B981' },
+  { icon: Users, title: 'Multi-Zone Control', color: '#A78BFA' },
+  { icon: Lock, title: 'Access Management', color: '#F59E0B' },
+  { icon: BarChart3, title: 'Analytics Dashboard', color: '#EC4899' },
+  { icon: FileText, title: 'Audit Reports', color: '#14B8A6' },
 ];
 
 const chips = ['Monitoring', 'Alerts', 'Dashboard', 'Reports', 'Analytics', 'Automation', 'Security', 'Integration'];
@@ -41,17 +50,12 @@ export default function PlatformPage() {
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-heading)' }}
             >
-              Intelligent{' '}
               <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                Monitoring Platform.
+                Intelligent Monitoring
               </span>
+              {' '}Platform.
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
-              className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-xl mx-auto mb-10"
-            >
-              From capture to report — one platform for all your monitoring needs.
-            </motion.p>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-wrap justify-center gap-4">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap justify-center gap-4 mt-10">
               <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
                 style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }}
               >Request a Demo <ArrowRight className="w-4 h-4" /></a>
@@ -70,9 +74,7 @@ export default function PlatformPage() {
             {[...chips, ...chips].map((c, i) => (
               <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap"
                 style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.10)', color: 'var(--color-text-secondary)' }}
-              >
-                <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}
-              </span>
+              ><span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}</span>
             ))}
           </div>
         </div>
@@ -80,7 +82,7 @@ export default function PlatformPage() {
         <div className="absolute inset-y-0 right-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(-90deg, var(--color-bg) 0%, transparent 100%)' }} />
       </section>
 
-      {/* How It Works */}
+      {/* Pipeline — names only */}
       <section className="py-24 md:py-32 relative overflow-hidden">
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14 md:mb-20">
@@ -90,20 +92,17 @@ export default function PlatformPage() {
               <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>One platform.</span>
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s, i) => {
               const Icon = s.icon;
               return (
                 <motion.div key={s.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group relative">
-                  <div className="relative p-6 md:p-8 rounded-3xl h-full" style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)' }}>
+                  <div className="relative p-6 md:p-8 rounded-3xl h-full text-center" style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)' }}>
                     <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full transition-opacity duration-700 group-hover:opacity-100 opacity-0" style={{ background: `radial-gradient(circle, ${s.color}33 0%, transparent 70%)`, filter: 'blur(28px)' }} />
                     <div className="relative z-10">
-                      <div className="flex items-start justify-between mb-6">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: `${s.color}15`, color: s.color, border: `1px solid ${s.color}25` }}><Icon className="w-6 h-6" /></span>
-                        <span className="text-3xl font-bold" style={{ color: `${s.color}20` }}>{s.step}</span>
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)' }}>{s.title}</h3>
-                      <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>{s.description}</p>
+                      <span className="text-3xl font-bold block mb-4" style={{ color: `${s.color}25` }}>{s.step}</span>
+                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl mx-auto mb-5" style={{ background: `${s.color}15`, color: s.color, border: `1px solid ${s.color}25` }}><Icon className="w-7 h-7" /></span>
+                      <h3 className="text-xl font-semibold" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)' }}>{s.title}</h3>
                     </div>
                   </div>
                   {i < steps.length - 1 && <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-20"><ChevronRight className="w-6 h-6 text-[var(--color-primary)] opacity-40" /></div>}
@@ -114,8 +113,36 @@ export default function PlatformPage() {
         </Container>
       </section>
 
-      {/* Stats */}
+      {/* Features — names only */}
       <section className="py-20 md:py-28 relative" style={{ background: 'var(--color-bg-subtle)' }}>
+        <Container className="relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>Capabilities</span>
+            <h2 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
+              Everything you{' '}
+              <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>need.</span>
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+            {features.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
+                  className="group text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-md" style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)' }}
+                >
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all group-hover:scale-110" style={{ background: `${f.color}12`, border: `1px solid ${f.color}20` }}>
+                    <Icon className="w-5 h-5" style={{ color: f.color }} />
+                  </div>
+                  <h4 className="text-sm font-semibold" style={{ color: 'var(--color-text)' }}>{f.title}</h4>
+                </motion.div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* Stats */}
+      <section className="py-20 md:py-28 relative">
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>Performance</span>

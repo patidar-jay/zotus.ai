@@ -12,11 +12,6 @@ export default function HeroSection() {
         .mesh-a { animation: meshA 18s ease-in-out infinite; }
         .mesh-b { animation: meshB 22s ease-in-out infinite; }
         .mesh-c { animation: meshC 14s ease-in-out infinite; }
-        @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-        .marquee-left { animation: marqueeLeft 45s linear infinite; }
-        .marquee-right { animation: marqueeRight 50s linear infinite; }
-        .marquee-left:hover, .marquee-right:hover { animation-play-state: paused; }
       `}</style>
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -27,9 +22,7 @@ export default function HeroSection() {
 
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
         backgroundImage: 'linear-gradient(rgba(109,40,217,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.05) 1px, transparent 1px)',
-        backgroundSize: '80px 80px',
-        maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
-        WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
+        backgroundSize: '80px 80px', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
       }} />
 
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
@@ -45,7 +38,7 @@ export default function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10B981] opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#10B981]" />
           </span>
-          <span style={{ color: 'var(--color-text-secondary)' }}>AI-Powered Solutions</span>
+          <span style={{ color: 'var(--color-text-secondary)' }}>Trusted by leading institutions</span>
           <Sparkles className="h-3 w-3" style={{ color: '#A78BFA' }} />
         </motion.div>
 
@@ -53,30 +46,26 @@ export default function HeroSection() {
           className="text-center font-semibold text-[44px] md:text-[72px] lg:text-[80px] leading-[1.05]"
           style={{ fontFamily: 'var(--font-heading)', maxWidth: 1100 }}
         >
-          <span>Smart </span>
           <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            AI Solutions
+            Exam Monitoring
           </span>
-          <span> for </span>
-          <span style={{ background: 'linear-gradient(120deg, #A78BFA 0%, #6C3CF4 40%, #10B981 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Real Problems.
-          </span>
+          <span> Solutions.</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
           className="mx-auto mt-8 max-w-2xl text-center text-lg md:text-xl leading-relaxed"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          Intelligent monitoring, automation, and security solutions
+          The intelligent monitoring platform behind exams,
           <br className="hidden md:block" />
-          for exams, warehouses, and enterprise environments.
+          warehouses, and enterprise security programs.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm uppercase tracking-wider"
           style={{ color: 'var(--color-text-tertiary)' }}
         >
-          {['Monitoring', 'Surveillance', 'Automation', 'Security', 'Analytics', 'Alerts'].map((item, i, arr) => (
+          {['Exam Proctoring', 'Warehouse Security', 'Live Monitoring', 'Smart Alerts', 'Analytics', 'Automation'].map((item, i, arr) => (
             <span key={item} className="flex items-center gap-6">
               <span>{item}</span>
               {i < arr.length - 1 && <span className="h-3 w-px" style={{ background: 'var(--color-border)' }} />}
@@ -89,14 +78,10 @@ export default function HeroSection() {
         >
           <a className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
             style={{ background: 'linear-gradient(120deg, #6C3CF4 0%, #A78BFA 100%)', boxShadow: '0 10px 30px -10px rgba(108,60,244,0.6)' }} href="/contact"
-          >
-            Talk to an expert <ArrowRight className="h-4 w-4" />
-          </a>
+          >Talk to an expert <ArrowRight className="h-4 w-4" /></a>
           <a className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors backdrop-blur-[10px]"
             style={{ background: 'rgba(15,23,42,0.04)', border: '1px solid rgba(15,23,42,0.12)', color: 'var(--color-text)' }} href="/platform"
-          >
-            Explore our platform
-          </a>
+          >Explore our platform</a>
         </motion.div>
 
         <motion.div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1"

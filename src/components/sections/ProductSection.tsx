@@ -1,26 +1,19 @@
 import { motion } from 'framer-motion';
-import {
-  Shield,
-  Radio,
-  Bell,
-  Warehouse,
-  LayoutDashboard,
-  Settings,
-} from 'lucide-react';
+import { Shield, Radio, Bell, Warehouse, LayoutDashboard, Settings } from 'lucide-react';
 import { Container } from '../ui';
 
-const chips1 = ['Smart Monitoring', 'Real-Time Alerts', 'Exam Solutions', 'Warehouse Security', 'Live Dashboard', 'Incident Reports',
-  'Access Control', 'Smart Automation', 'Audit Trail', 'AI Analytics', 'Quality Control', 'Performance Reports'];
-const chips2 = ['Monitoring', 'Alerts', 'Dashboard', 'Reports', 'Analytics', 'Automation', 'Security', 'Integration',
-  'Exam Proctoring', 'Surveillance', 'Compliance', 'Data Insights'];
+const chips1 = ['Exam Monitoring', 'Live Surveillance', 'Smart Alerts', 'Warehouse Security', 'Admin Dashboard', 'Custom Automation',
+  'Incident Reports', 'Access Control', 'Audit Trail', 'Analytics', 'Quality Control', 'Performance Reports'];
+const chips2 = ['Proctoring', 'Alerts', 'Dashboard', 'Reports', 'Analytics', 'Automation', 'Security', 'Integration',
+  'Monitoring', 'Surveillance', 'Compliance', 'Insights'];
 
 const products = [
-  { icon: Shield, title: 'Exam Monitoring', subtitle: 'Proctoring · Integrity · Compliance', description: 'AI-powered exam proctoring solutions.', color: '#A78BFA', href: '/case-studies' },
-  { icon: Radio, title: 'Live Surveillance', subtitle: 'Real-time · Multi-camera · Alerts', description: 'Real-time monitoring and alerting.', color: '#10B981', href: '/platform' },
-  { icon: Bell, title: 'Smart Alerts', subtitle: 'Instant · Automated · Accurate', description: 'Instant notifications for every incident.', color: '#6C3CF4', href: '/platform' },
-  { icon: Warehouse, title: 'Warehouse Security', subtitle: 'Inventory · Access · Prevention', description: 'Intelligent security for warehouses.', color: '#F59E0B', href: '/case-studies' },
-  { icon: LayoutDashboard, title: 'Admin Dashboard', subtitle: 'Control · Reports · Analytics', description: 'Centralized control and reporting.', color: '#EC4899', href: '/platform' },
-  { icon: Settings, title: 'Custom Automation', subtitle: 'Workflows · Integration · Scale', description: 'Tailored automation workflows.', color: '#14B8A6', href: '/platform' },
+  { icon: Shield, title: 'Exam Monitoring', subtitle: 'Proctoring · Integrity · Compliance', color: '#A78BFA', href: '/case-studies' },
+  { icon: Radio, title: 'Live Surveillance', subtitle: 'Real-time · Multi-camera · Alerts', color: '#10B981', href: '/platform' },
+  { icon: Bell, title: 'Smart Alerts', subtitle: 'Instant · Automated · Accurate', color: '#6C3CF4', href: '/platform' },
+  { icon: Warehouse, title: 'Warehouse Security', subtitle: 'Inventory · Access · Prevention', color: '#F59E0B', href: '/case-studies' },
+  { icon: LayoutDashboard, title: 'Admin Dashboard', subtitle: 'Control · Reports · Analytics', color: '#EC4899', href: '/platform' },
+  { icon: Settings, title: 'Custom Automation', subtitle: 'Workflows · Integration · Scale', color: '#14B8A6', href: '/platform' },
 ];
 
 export default function ProductSection() {
@@ -41,8 +34,7 @@ export default function ProductSection() {
               <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap backdrop-blur-lg"
                 style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.08)', color: 'var(--color-text-secondary)' }}
               >
-                <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />
-                {c}
+                <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}
               </span>
             ))}
           </div>
@@ -51,8 +43,7 @@ export default function ProductSection() {
               <span key={i} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap backdrop-blur-lg"
                 style={{ background: 'rgba(109,40,217,0.04)', border: '1px solid rgba(109,40,217,0.08)', color: 'var(--color-text-secondary)' }}
               >
-                <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />
-                {c}
+                <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ['#A78BFA', '#10B981', '#F59E0B'][i % 3] }} />{c}
               </span>
             ))}
           </div>
@@ -61,7 +52,7 @@ export default function ProductSection() {
         <div className="absolute inset-y-0 right-0 w-32 pointer-events-none" style={{ background: 'linear-gradient(-90deg, var(--color-bg) 0%, transparent 100%)' }} />
       </section>
 
-      {/* Product Cards */}
+      {/* Product Cards — names only, no descriptions */}
       <section id="product" className="relative overflow-hidden py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none opacity-60" style={{
           backgroundImage: 'linear-gradient(rgba(109,40,217,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.03) 1px, transparent 1px)',
@@ -76,17 +67,12 @@ export default function ProductSection() {
               <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6C3CF4' }}>What we build</span>
               <h2 className="text-4xl md:text-6xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
                 Solutions,{' '}
-                <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  purpose-built
-                </span>
+                <span style={{ background: 'linear-gradient(120deg, #A78BFA, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>purpose-built</span>
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-                Six capabilities. One intelligent platform.
-              </p>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-[minmax(280px,auto)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-[minmax(220px,auto)]">
             {products.map((p, i) => {
               const Icon = p.icon;
               return (
@@ -98,19 +84,16 @@ export default function ProductSection() {
                       style={{ background: `radial-gradient(circle, ${p.color}44 0%, transparent 70%)`, filter: 'blur(28px)' }}
                     />
                     <div className="relative z-10 flex flex-col h-full">
-                      <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-start justify-between mb-6">
                         <span className="flex h-11 w-11 items-center justify-center rounded-xl" style={{ background: `${p.color}18`, color: p.color, border: `1px solid ${p.color}30` }}>
                           <Icon className="h-5 w-5" />
                         </span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                           className="transition-transform duration-500 group-hover:rotate-45 group-hover:translate-x-1 opacity-30 group-hover:opacity-60" style={{ color: 'var(--color-text-secondary)' }}
-                        >
-                          <path d="M7 7h10v10" /><path d="M7 17 17 7" />
-                        </svg>
+                        ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                       </div>
                       <h3 className="text-2xl md:text-3xl font-semibold" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text)' }}>{p.title}</h3>
-                      <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-secondary)' }}>{p.subtitle}</p>
-                      <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>{p.description}</p>
+                      <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-secondary)' }}>{p.subtitle}</p>
                     </div>
                   </a>
                 </motion.div>
