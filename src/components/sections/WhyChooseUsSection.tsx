@@ -131,34 +131,7 @@ export default function WhyChooseUsSection() {
         </Container>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 md:py-28 relative">
-        <Container className="relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#6D28D9' }}>By the numbers</span>
-            <h2 className="text-3xl md:text-5xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
-              Scale that{' '}
-              <span style={{ background: 'linear-gradient(120deg, #A855F7, #8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>speaks.</span>
-            </h2>
-          </motion.div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="text-center p-8 rounded-3xl" style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)' }}
-                >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(109,40,217,0.08)' }}>
-                    <Icon className="w-6 h-6 text-[var(--color-primary)]" />
-                  </div>
-                  <div className="text-4xl md:text-5xl font-bold mb-2" style={{ fontFamily: 'var(--font-heading)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{s.value}</div>
-                  <div className="text-sm text-[var(--color-text-secondary)]">{s.label}</div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+
     </>
   );
 }
