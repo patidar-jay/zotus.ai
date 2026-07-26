@@ -48,7 +48,7 @@ export default function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8B5CF6] opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8B5CF6]" />
           </span>
-          <span style={{ color: 'var(--color-text-secondary)' }}>Trusted by frontier AI labs</span>
+          <span style={{ color: 'var(--color-text-secondary)' }}>Innovate at the speed of light</span>
           <Sparkles className="h-3 w-3" style={{ color: '#A855F7' }} />
         </motion.div>
 
