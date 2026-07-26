@@ -22,12 +22,7 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-[-50%] opacity-[0.55]" style={{
-          background: 'conic-gradient(from 180deg at 50% 50%, #1a0533 0deg, #0c1222 60deg, #1a0a2e 120deg, #0d1b2a 180deg, #1a0533 240deg, #0f172a 300deg, #1a0533 360deg)',
-          animation: 'heroGrain 15s ease infinite',
-        }} />
-      </div>
+
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="mesh-a absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.12] blur-[80px]" style={{ background: '#6D28D9' }} />
