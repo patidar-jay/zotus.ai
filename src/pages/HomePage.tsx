@@ -1,7 +1,6 @@
 import {
   HeroSection,
   ProductSection,
-  ServicesSection,
   WhyChooseUsSection,
   CTASection,
 } from '../components/sections';
@@ -11,7 +10,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ProductSection />
-      <ServicesSection />
       <WhyChooseUsSection />
       <CTASection />
     </>
