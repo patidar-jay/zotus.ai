@@ -12,21 +12,38 @@ export default function HeroSection() {
         .mesh-a { animation: meshA 18s ease-in-out infinite; }
         .mesh-b { animation: meshB 22s ease-in-out infinite; }
         .mesh-c { animation: meshC 14s ease-in-out infinite; }
+        @keyframes heroGrain {
+          0%,100% { transform: translate(0,0) }
+          10% { transform: translate(-2%,-2%) }
+          30% { transform: translate(3%,0) }
+          50% { transform: translate(-1%,3%) }
+          70% { transform: translate(2%,-1%) }
+          90% { transform: translate(-3%,2%) }
+        }
       `}</style>
 
+      {/* Video-like animated gradient background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="mesh-a absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.07] blur-[80px]" style={{ background: 'var(--color-primary)' }} />
-        <div className="mesh-b absolute top-[30%] right-[-15%] w-[50vw] h-[50vw] rounded-full opacity-[0.09] blur-[100px]" style={{ background: 'var(--color-accent)' }} />
-        <div className="mesh-c absolute bottom-[-30%] left-[25%] w-[55vw] h-[55vw] rounded-full opacity-[0.06] blur-[90px]" style={{ background: '#10B981' }} />
+        <div className="absolute inset-[-50%] opacity-[0.55]" style={{
+          background: 'conic-gradient(from 180deg at 50% 50%, #1a0533 0deg, #0c1222 60deg, #1a0a2e 120deg, #0d1b2a 180deg, #1a0533 240deg, #0f172a 300deg, #1a0533 360deg)',
+          animation: 'heroGrain 15s ease infinite',
+        }} />
       </div>
 
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="mesh-a absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.12] blur-[80px]" style={{ background: '#6C3CF4' }} />
+        <div className="mesh-b absolute top-[30%] right-[-15%] w-[50vw] h-[50vw] rounded-full opacity-[0.14] blur-[100px]" style={{ background: '#A78BFA' }} />
+        <div className="mesh-c absolute bottom-[-30%] left-[25%] w-[55vw] h-[55vw] rounded-full opacity-[0.08] blur-[90px]" style={{ background: '#10B981' }} />
+      </div>
+
+      {/* Grid overlay */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'linear-gradient(rgba(109,40,217,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.05) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(109,40,217,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.06) 1px, transparent 1px)',
         backgroundSize: '80px 80px', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
       }} />
 
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 90% 70% at 20% 30%, rgba(108,60,244,0.10) 0%, transparent 55%), radial-gradient(ellipse 80% 60% at 80% 70%, rgba(16,185,129,0.08) 0%, transparent 55%)',
+        background: 'radial-gradient(ellipse 90% 70% at 20% 30%, rgba(108,60,244,0.12) 0%, transparent 55%), radial-gradient(ellipse 80% 60% at 80% 70%, rgba(16,185,129,0.10) 0%, transparent 55%)',
       }} />
 
       <Container className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 pt-24 pb-12">
