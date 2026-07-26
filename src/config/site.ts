@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     'The data engine behind coding, robotics, agentic workflows, model evaluation, and post-training programs for frontier AI teams.',
   url: 'https://zotus.ai',
-  email: 'zotusai@gmail.com',
+  email: 'contact@zotusai.com',
   address: {
     line1: '65/A, Sector-B, Amrit Palace',
     line2: 'Nipaniya, Vijay Nagar',
