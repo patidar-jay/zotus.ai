@@ -79,7 +79,7 @@ export default function HeroSection() {
           className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm uppercase tracking-wider"
           style={{ color: 'var(--color-text-tertiary)' }}
         >
-          {['Coding', 'Agentic Workflows', 'Robotics', 'World Models', 'Model Evaluation', 'RLHF / SFT'].map((item, i, arr) => (
+          {['Exam AI Monitoring Solution', 'Coding', 'Agentic Workflows', 'Robotics', 'World Models', 'RLHF / SFT'].map((item, i, arr) => (
             <span key={item} className="flex items-center gap-6">
               <span>{item}</span>
               {i < arr.length - 1 && <span className="h-3 w-px" style={{ background: 'var(--color-border)' }} />}

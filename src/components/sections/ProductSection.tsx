@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Bot, Terminal, Video, FileText, ShieldCheck, Users } from 'lucide-react';
 import { Container } from '../ui';
 
-const chips1 = ['Motion capture', 'Humanoid control', 'Sim-to-real', 'Agent benchmarks', 'Tool-use traces', 'Video annotation',
-  'Instance segmentation', 'Semantic masks', 'RLHF preference', 'Red-team evals', 'Active learning', 'AI-native QC'];
+const chips1 = ['Exam AI Monitoring Solution', 'Motion capture', 'Humanoid control', 'Sim-to-real', 'Agent benchmarks', 'Tool-use traces', 'Video annotation',
+  'Instance segmentation', 'Semantic masks', 'RLHF preference', 'Red-team evals', 'Active learning'];
 const chips2 = ['Data labeling', 'Model grading', 'Prompt engineering', 'Reward modeling', 'Code review', 'Expert annotation',
   'Quality assurance', 'Multimodal data', 'Safety testing', 'Agentic traces', 'Fine-tuning sets', 'Evaluation pipelines'];
 
